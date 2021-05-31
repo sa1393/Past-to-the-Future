@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float moveSpeed = 10f;
+    
+    public float moveSpeed = 20f;
     public float jumpForce = 5f;
 
     private Rigidbody2D rigid;
@@ -30,8 +31,7 @@ public class PlayerMove : MonoBehaviour
 
         if (jumpEnable && Input.GetKeyDown(KeyCode.Space))
         {
-            rigid.velocity = new Vector2(rigid.velocity.x, 3 * jumpForce);
-            Debug.Log("¡°«¡ «‘");
+            rigid.velocity = new Vector2(rigid.velocity.x, jumpForce);
         }
     }
 
@@ -40,7 +40,9 @@ public class PlayerMove : MonoBehaviour
         if (collision.gameObject.tag == "floor")
         {
             jumpEnable = true;
-            Debug.Log("∂•ø° ¥Í¿Ω");
+        }
+
+        if(collision.gameObject.tag == "enemy") {
         }
     }
 
@@ -49,7 +51,10 @@ public class PlayerMove : MonoBehaviour
         if (collision.gameObject.tag == "floor")
         {
             jumpEnable = false;
-            Debug.Log("∞¯¡ﬂø° ∂∞¿÷¿Ω");
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.tag == "enemy") Debug.Log("ÎãøÏùå");
     }
 }

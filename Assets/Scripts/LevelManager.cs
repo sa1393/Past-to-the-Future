@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    //¸Ê Å©±â
+    //ï¿½ï¿½ Å©ï¿½ï¿½
     float mapX = 0;
     float mapY = 0;
 
@@ -34,7 +34,7 @@ public class LevelManager : MonoBehaviour
     }
 
 
-    // °ø°£ °¡¸£´Â Àç±Í ÇÔ¼ö
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
     void SlideSpace(Vector2 sliceStart, Vector2 sliceEnd, bool sliceDir)
     {
 
@@ -99,7 +99,7 @@ public class LevelManager : MonoBehaviour
 
     }           
 
-    //¹æ ¸¸µé±â
+    //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
     void CreateRoom(Vector2 locS, Vector2 locE)
     {
         Vector2 size = new Vector2(test.bounds.size.x, test.bounds.size.y);

@@ -2,18 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class LifeObject : MonoBehaviour
 {
-
-    
-    void Awake()
-    {
-
-    }
 
     void Start()
     {
-               
+        
     }
 
     void Update()
