@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - floor
-  - enemy
+  - Floor
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -13,9 +13,9 @@ TagManager:
   - 
   - Water
   - UI
+  - Floor
   - Enemy
   - Player
-  - Floor
   - 
   - 
   - 
