@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : LifeObject
+public abstract class Enemy : LifeObject
 {
     private GameObject target;
     private BoxCollider2D enemyFloor;
+    public Player player;
 
     public int hp;
     //공격력
@@ -17,13 +18,16 @@ public class Enemy : LifeObject
     //공격속도
     public float attackSpeed;
 
-    private void Awake()
+    protected void Awake()
     {
         enemyFloor = GetComponent<BoxCollider2D>();
+        Physics2D.IgnoreCollision(enemyFloor, player.playerCollider);
+
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-    }
+    protected abstract void Init();
+
+    protected abstract void Hit();
+
 
 }
