@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 411934623}
   - component: {fileID: 411934624}
   - component: {fileID: 411934620}
+  - component: {fileID: 411934625}
   m_Layer: 8
   m_Name: player_demo
   m_TagString: Player
@@ -161,7 +162,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 215, y: 417}
+    oldSize: {x: 243, y: 418}
     newSize: {x: 2.15, y: 4.17}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -260,6 +261,8 @@ MonoBehaviour:
   moveMaxSpeed: 30000
   moveSpeed: 45000
   jumpForce: 2000
+  hp: 0
+  attackDamage: 0
   playerCollider: {fileID: 0}
 --- !u!212 &411934621
 SpriteRenderer:
@@ -301,7 +304,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 81ed8c0ffd0e7324c8d148d1cebda9b8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f27b67d7fb1962947af03955deb5fe25, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -320,7 +323,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 411934618}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -77, y: -113, z: 0}
+  m_LocalPosition: {x: -77, y: -246, z: 0}
   m_LocalScale: {x: 0.52085, y: 0.52085, z: 0.52085}
   m_Children: []
   m_Father: {fileID: 0}
@@ -366,6 +369,25 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!95 &411934625
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411934618}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f4923db99f6a25d4b984cc4b3cf8ac5c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &676365662
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,7 +445,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: eb6e4fc365b76354c8873743da0d3d9e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ea257bf67547e1b4dbecd5a49c500bea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

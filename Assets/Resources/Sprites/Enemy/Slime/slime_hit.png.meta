@@ -1,28 +1,25 @@
 fileFormatVersion: 2
-guid: a7680aaeb2c0275439f3fc40b1f96bdc
+guid: 16bc5bf34a9fbc44fa8ab92040b44e95
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8084760605890947666
-    second: player_move_1_0
+      213: 6262394357161552327
+    second: slime_hit_0
   - first:
-      213: 3154349257632665611
-    second: player_move_1_1
+      213: 654323617845705142
+    second: slime_hit_1
   - first:
-      213: -2975633850468835750
-    second: player_move_1_2
+      213: 1886437463859703548
+    second: slime_hit_2
   - first:
-      213: 4348997738668697896
-    second: player_move_1_3
+      213: 7855126967801417794
+    second: slime_hit_3
   - first:
-      213: -4342341358919578252
-    second: player_move_1_4
+      213: -4953889607281593097
+    second: slime_hit_4
   - first:
-      213: -7103231557542065807
-    second: player_move_1_5
-  - first:
-      213: -8417585570471123579
-    second: player_move_1_6
+      213: 4404326970608005650
+    second: slime_hit_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -67,7 +64,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,152 +105,143 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player_move_1_0
+      name: slime_hit_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4070
+        width: 2936
+        height: 2035
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c9660efc7e78e650800000000000000
+      internalID: 6262394357161552327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slime_hit_1
+      rect:
+        serializedVersion: 2
+        x: 2936
+        y: 4070
+        width: 2936
+        height: 2035
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b977d91ddf941900800000000000000
+      internalID: 654323617845705142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slime_hit_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2035
+        width: 2936
+        height: 2035
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfea85ce0e8fd2a10800000000000000
+      internalID: 1886437463859703548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slime_hit_3
+      rect:
+        serializedVersion: 2
+        x: 2936
+        y: 2035
+        width: 2936
+        height: 2035
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2401565eb54030d60800000000000000
+      internalID: 7855126967801417794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slime_hit_4
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 500
-        height: 500
+        width: 2936
+        height: 2035
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25aa338afe6d23070800000000000000
-      internalID: 8084760605890947666
+      spriteID: 7f43b7526af304bb0800000000000000
+      internalID: -4953889607281593097
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_move_1_1
+      name: slime_hit_5
       rect:
         serializedVersion: 2
-        x: 500
+        x: 2936
         y: 0
-        width: 500
-        height: 500
+        width: 2936
+        height: 2035
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0056b6ffef76cb20800000000000000
-      internalID: 3154349257632665611
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player_move_1_2
-      rect:
-        serializedVersion: 2
-        x: 1000
-        y: 0
-        width: 500
-        height: 500
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a5e5d2157cc64b6d0800000000000000
-      internalID: -2975633850468835750
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player_move_1_3
-      rect:
-        serializedVersion: 2
-        x: 1500
-        y: 0
-        width: 500
-        height: 500
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 829235eb66eba5c30800000000000000
-      internalID: 4348997738668697896
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player_move_1_4
-      rect:
-        serializedVersion: 2
-        x: 2000
-        y: 0
-        width: 500
-        height: 500
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 47d8c107a87ecb3c0800000000000000
-      internalID: -4342341358919578252
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player_move_1_5
-      rect:
-        serializedVersion: 2
-        x: 2500
-        y: 0
-        width: 500
-        height: 500
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1794c5f68804c6d90800000000000000
-      internalID: -7103231557542065807
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player_move_1_6
-      rect:
-        serializedVersion: 2
-        x: 3000
-        y: 0
-        width: 500
-        height: 500
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5856d9d958abe2b80800000000000000
-      internalID: -8417585570471123579
+      spriteID: 21233cd6b005f1d30800000000000000
+      internalID: 4404326970608005650
       vertices: []
       indices: 
       edges: []
