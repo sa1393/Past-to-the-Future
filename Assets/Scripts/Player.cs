@@ -31,11 +31,6 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    private void Start()
-    {
-        
-    }
-
     private void Init() {
         hp = 100;
         attackDamage = 10;
@@ -55,22 +50,12 @@ public class Player : MonoBehaviour
         PlayerMove();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
             OnDamaged(collision.transform.position);
         }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-
     }
 
     //¶¥ Ã¼Å©

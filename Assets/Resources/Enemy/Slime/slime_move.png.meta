@@ -105,18 +105,6 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -125,9 +113,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 4078.6665
-        width: 3050.5
-        height: 2039.3334
+        y: 0
+        width: 1000
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,10 +133,10 @@ TextureImporter:
       name: slime_move_1
       rect:
         serializedVersion: 2
-        x: 3050
-        y: 4078.6665
-        width: 3050.5
-        height: 2039.3334
+        x: 1000
+        y: 0
+        width: 1000
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,10 +154,10 @@ TextureImporter:
       name: slime_move_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2039.6666
-        width: 3050.5
-        height: 2039.3334
+        x: 2000
+        y: 0
+        width: 1000
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,10 +175,10 @@ TextureImporter:
       name: slime_move_3
       rect:
         serializedVersion: 2
-        x: 3050
-        y: 2039.6666
-        width: 3050.5
-        height: 2039.3334
+        x: 3000
+        y: 0
+        width: 1000
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,10 +196,10 @@ TextureImporter:
       name: slime_move_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0.666626
-        width: 3050.5
-        height: 2039.3334
+        x: 4000
+        y: 0
+        width: 1000
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,10 +217,10 @@ TextureImporter:
       name: slime_move_5
       rect:
         serializedVersion: 2
-        x: 3050
-        y: 0.666626
-        width: 3050.5
-        height: 2039.3334
+        x: 5000
+        y: 0
+        width: 1000
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

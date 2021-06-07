@@ -22,12 +22,9 @@ public abstract class Enemy : LifeObject
     {
         enemyFloor = GetComponent<BoxCollider2D>();
         Physics2D.IgnoreCollision(enemyFloor, player.playerCollider);
-
     }
 
     protected abstract void Init();
 
     protected abstract void Hit();
-
-
 }
