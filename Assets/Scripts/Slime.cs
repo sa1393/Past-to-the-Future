@@ -7,7 +7,6 @@ public class Slime : Enemy
     //현재 자신이 오른쪽을 바라보고 있는가?
     private bool isRight = false;
 
-    private Rigidbody2D rigid;
     private Animator animator;
 
     //공격력
@@ -19,32 +18,51 @@ public class Slime : Enemy
     {
         base.Awake();
 
-        rigid = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
-        rigid.AddForce(Vector2.up * 10, ForceMode2D.Impulse);
+        enemyRigid.AddForce(Vector2.up * 10, ForceMode2D.Impulse);
+
+        Init();
+    }
+
+    private void FixedUpdate()
+    {
+        //Move();
     }
 
     protected override void Init()
     {
         hp = 100;
         range = 1;
-        moveSpeed = 10000;
+        moveSpeed = 5f;
         attackDamage = 10;
         attackSpeed = 4f;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        
+        if (collision.gameObject.tag == "PlayerAttack")
         {
-            Hit();
+            PlayerAttackInfo tempPlayer = gameObject.GetComponent<PlayerAttackInfo>();
+            
+            if (tempPlayer != null)
+            {
+                Debug.Log(tempPlayer.attackDamage);
+                Hit(tempPlayer.attackDamage);
+            }
         }
     }
 
-    protected override void Hit()
+    protected override void Hit(int damage)
     {
-        Debug.Log("아야");
+        hp -= damage;
+        if(hp < 0)
+        {
+            Die();
+        }
+        Debug.Log("맞음");
+
     }
 
     void Flip()
@@ -53,5 +71,10 @@ public class Slime : Enemy
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
+    }
+
+    protected override void Die()
+    {
+        Destroy(this.gameObject);
     }
 }

@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
 
     private void Init() {
         hp = 100;
-        attackDamage = 10;
+        attackDamage = 1000;
     }
 
     void Update()
@@ -42,6 +42,14 @@ public class Player : MonoBehaviour
         {
             Jump();
         }
+
+
+        //공격
+        if (Input.GetMouseButton(0))
+        {
+            PlayerAttack();
+        }
+
     }
 
     private void FixedUpdate()
@@ -123,6 +131,12 @@ public class Player : MonoBehaviour
 
         //애니메이션 파라미터 설정
         animator.SetTrigger("isHit");
+    }
+
+    void PlayerAttack()
+    {
+        animator.SetTrigger("isAttack");
+
     }
 
     //플레이어 스프라이트 전환
