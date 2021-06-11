@@ -1,13 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public abstract class Enemy : LifeObject
 {
     private GameObject target;
-    private BoxCollider2D enemyFloor;
+    private PolygonCollider2D enemyCollider;
     public Player player;
     protected Rigidbody2D enemyRigid;
+    protected Animator animator;
+
+    //현재 자신이 오른쪽을 바라보고 있는가?
+    protected bool isRight = false;
+
 
     public int hp;
     //공격력
@@ -21,15 +27,52 @@ public abstract class Enemy : LifeObject
 
     protected void Awake()
     {
-        enemyFloor = GetComponent<BoxCollider2D>();
-        Physics2D.IgnoreCollision(enemyFloor, player.playerCollider);
         enemyRigid = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        enemyCollider = GetComponent<PolygonCollider2D>();
+        
+    }
+    public virtual void SlimeAttackMove()
+    {
+        enemyRigid.AddForce(new Vector2((isRight ? 1 : -1) * standardNumber * 30f, 0));
     }
 
-    //일정한 거리 이동
-    protected void Move()
+    protected virtual void Attack()
     {
-        enemyRigid.velocity = new Vector2(100 * -moveSpeed, enemyRigid.velocity.y);
+        animator.SetTrigger("isAttack");
+        gameObject.tag = "EnemyAttack";
+        enemyRigid.gravityScale = 0;
+        enemyCollider.isTrigger = true;
+        gameObject.layer = 9;
+
+    }
+
+    protected virtual void OffAttack()
+    {
+        gameObject.tag = "Enemy";
+        enemyCollider.isTrigger = false;
+        enemyRigid.gravityScale = 1;
+        gameObject.layer = 7;
+    }
+    //공격 시작
+    IEnumerator StartAttack(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Attack();
+    }
+
+    //거리 이동
+    protected void StartMove(float speed, float time)
+    {
+        transform.DOMoveX(speed, 2f);
+    }
+
+    void Flip()
+    {
+        isRight = !isRight;
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
     }
 
     protected abstract void Init();

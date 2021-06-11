@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class Slime : Enemy
 {
-    //현재 자신이 오른쪽을 바라보고 있는가?
-    private bool isRight = false;
-
-    private Animator animator;
 
     //공격력
     //사거리
@@ -18,11 +14,16 @@ public class Slime : Enemy
     {
         base.Awake();
 
-        animator = GetComponent<Animator>();
-
-        enemyRigid.AddForce(Vector2.up * 10, ForceMode2D.Impulse);
-
         Init();
+    }
+
+    private void Start()
+    {
+    }
+
+    private void Update()
+    {
+        StartMove(1f * standardNumber, 3f);
     }
 
     private void FixedUpdate()
@@ -32,7 +33,7 @@ public class Slime : Enemy
 
     protected override void Init()
     {
-        hp = 100;
+        hp = 100000;
         range = 1;
         moveSpeed = 5f;
         attackDamage = 10;
@@ -41,10 +42,10 @@ public class Slime : Enemy
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
         if (collision.gameObject.tag == "PlayerAttack")
         {
-            PlayerAttackInfo tempPlayer = gameObject.GetComponent<PlayerAttackInfo>();
+
+            PlayerAttackInfo tempPlayer = collision.gameObject.GetComponent<PlayerAttackInfo>();
             
             if (tempPlayer != null)
             {
@@ -54,6 +55,17 @@ public class Slime : Enemy
         }
     }
 
+    protected override void Attack()
+    {
+        base.Attack();
+        
+    }
+
+    public void SlimeAttackMove()
+    {
+        enemyRigid.AddForce(new Vector2((isRight ? 1 : -1) * standardNumber * 30f, 0));
+    }
+
     protected override void Hit(int damage)
     {
         hp -= damage;
@@ -61,17 +73,15 @@ public class Slime : Enemy
         {
             Die();
         }
-        Debug.Log("맞음");
+        else
+        {
+            animator.SetTrigger("isHit");
+        }
+        
 
     }
 
-    void Flip()
-    {
-        isRight = !isRight;
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
-    }
+
 
     protected override void Die()
     {

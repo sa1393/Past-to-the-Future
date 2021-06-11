@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : LifeObject
 {
     public float moveMaxSpeed = 30000f;
     public float moveSpeed = 45000f;
     public float jumpForce = 2000f;
+
+    public bool canAttack = true;
 
     //체력
     public int hp;
@@ -45,7 +47,7 @@ public class Player : MonoBehaviour
 
 
         //공격
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && canAttack)
         {
             PlayerAttack();
         }
@@ -58,10 +60,16 @@ public class Player : MonoBehaviour
         PlayerMove();
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "EnemyAttack")
         {
+
             OnDamaged(collision.transform.position);
         }
     }
@@ -136,8 +144,10 @@ public class Player : MonoBehaviour
     void PlayerAttack()
     {
         animator.SetTrigger("isAttack");
-
     }
+
+
+
 
     //플레이어 스프라이트 전환
     void Flip()
