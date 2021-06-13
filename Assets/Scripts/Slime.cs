@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Slime : Enemy
 {
+    CapsuleCollider2D rangeCollider;
 
     //공격력
     //사거리
@@ -15,6 +16,7 @@ public class Slime : Enemy
         base.Awake();
 
         Init();
+        rangeCollider = GetComponent<CapsuleCollider2D>();
     }
 
     private void Start()
@@ -23,18 +25,19 @@ public class Slime : Enemy
 
     private void Update()
     {
+        base.Update();
         StartMove(1f * standardNumber, 3f);
     }
 
     private void FixedUpdate()
     {
         //Move();
+        SlimeMove();
     }
 
     protected override void Init()
     {
-        hp = 100000;
-        range = 1;
+        hp = 4;
         moveSpeed = 5f;
         attackDamage = 10;
         attackSpeed = 4f;
@@ -42,6 +45,7 @@ public class Slime : Enemy
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.gameObject.tag == "PlayerAttack")
         {
 
@@ -49,42 +53,47 @@ public class Slime : Enemy
             
             if (tempPlayer != null)
             {
-                Debug.Log(tempPlayer.attackDamage);
                 Hit(tempPlayer.attackDamage);
+                canHit = false;
             }
         }
     }
 
-    protected override void Attack()
+    private void SlimeMove()
     {
-        base.Attack();
-        
+        if(!attacking && !hitting)
+        {
+            bool right = false;
+            right = player.transform.position.x > transform.position.x ? true : false;
+
+            if (right != isRight)
+                Flip();
+
+            enemyRigid.velocity = new Vector2(0.2f * standardNumber * (right ? 1 : -1) , enemyRigid.velocity.y);
+        }
     }
 
-    public void SlimeAttackMove()
-    {
-        enemyRigid.AddForce(new Vector2((isRight ? 1 : -1) * standardNumber * 30f, 0));
-    }
 
     protected override void Hit(int damage)
     {
         hp -= damage;
         if(hp < 0)
         {
-            Die();
+            animator.SetTrigger("isDead");
+            StartCoroutine("Die", 1f);
         }
         else
         {
-            animator.SetTrigger("isHit");
+            sr.color = new Color(1, 1, 1, 0.4f);
         }
         
 
     }
 
-
-
-    protected override void Die()
+    protected override IEnumerator Die(float second)
     {
-        Destroy(this.gameObject);
+        yield return new WaitForSeconds(second);
+        Destroy(transform.parent.gameObject);
+
     }
 }

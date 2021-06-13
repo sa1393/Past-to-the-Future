@@ -33,9 +33,13 @@ public class Player : LifeObject
         animator = GetComponent<Animator>();
     }
 
+    private void Start()
+    {
+        Init();
+    }
     private void Init() {
         hp = 100;
-        attackDamage = 1000;
+        attackDamage = 1;
     }
 
     void Update()

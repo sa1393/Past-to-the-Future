@@ -9,6 +9,7 @@ TagManager:
   - floor
   - PlayerAttack
   - EnemyAttack
+  - EnemyRange
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Enemy
   - Player
   - EnemyAttack
-  - 
+  - EnemyRange
   - 
   - 
   - 
