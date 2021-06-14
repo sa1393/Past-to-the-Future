@@ -10,8 +10,11 @@ public abstract class Enemy : LifeObject
     private GameObject target;
     private PolygonCollider2D enemyCollider;
     public Player player;
+    protected GameObject effect;
     protected Rigidbody2D enemyRigid;
     protected Animator animator;
+    protected Animator effectAnimator;
+
 
 
     //임시
@@ -50,6 +53,10 @@ public abstract class Enemy : LifeObject
         animator = GetComponent<Animator>();
         enemyCollider = GetComponent<PolygonCollider2D>();
         sr = GetComponent<SpriteRenderer>();
+
+
+        effect = transform.parent.GetChild(2).gameObject;
+        effectAnimator = effect.GetComponent<Animator>();
         
     }
 
@@ -86,8 +93,6 @@ public abstract class Enemy : LifeObject
             {
                 currentAttackDelay = 0;
                 canAttack = true;
-                //임시
-                Debug.Log("2");
             }
         }
     }
@@ -110,7 +115,7 @@ public abstract class Enemy : LifeObject
         gameObject.layer = 7;
     }
     //공격 시작
-    IEnumerator StartAttack(float time)
+    IEnumerator StartBaseAttack(float time)
     {
         if (canAttack && !hitting && !attacking)
         {
@@ -129,25 +134,19 @@ public abstract class Enemy : LifeObject
             {
                 //애니메이션 재생 중 실행되는 부분
                 yield return null;
-            }
+            }   
 
             canAttack = false;
             attacking = false;
-            Debug.Log("1");
         }
-    }
-
-    //거리 이동
-    protected void StartMove(float speed, float time)
-    {
     }
 
     protected void Flip()
     {
         isRight = !isRight;
-        Vector3 scale = transform.localScale;
+        Vector3 scale = transform.parent.localScale;
         scale.x *= -1;
-        transform.localScale = scale;
+        transform.parent.localScale = scale;
     }
 
     protected abstract void Init();

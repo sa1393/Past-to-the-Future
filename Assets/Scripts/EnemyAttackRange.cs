@@ -15,7 +15,7 @@ public class EnemyAttackRange : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            transform.parent.GetChild(0).GetComponent<Enemy>().StartCoroutine("StartAttack", 0.5f);
+            transform.parent.GetChild(0).GetComponent<Enemy>().StartCoroutine("StartBaseAttack", 0.5f);
         }
 
     }

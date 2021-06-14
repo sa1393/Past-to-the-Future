@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 1ef772c0603587e42ae4b89d54302754
+guid: 6fc4b4f01efd1624db786972126d08d3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7755010275377664734
-    second: player_attack_1_0
+      213: 6342063310603605302
+    second: slime_attack_effect_0
   - first:
-      213: 8074927349980369138
-    second: player_attack_1_1
+      213: -5218539109461886049
+    second: slime_attack_effect_1
   - first:
-      213: -5299365836472130414
-    second: player_attack_1_2
+      213: 4827356486427672836
+    second: slime_attack_effect_2
   - first:
-      213: 2368009916530147809
-    second: player_attack_1_3
+      213: -6969519136407153196
+    second: slime_attack_effect_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -103,7 +103,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player_attack_1_0
+      name: slime_attack_effect_0
       rect:
         serializedVersion: 2
         x: 0
@@ -117,14 +117,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22d2c9a0e3ba06490800000000000000
-      internalID: -7755010275377664734
+      spriteID: 635d093baf8830850800000000000000
+      internalID: 6342063310603605302
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_attack_1_1
+      name: slime_attack_effect_1
       rect:
         serializedVersion: 2
         x: 360
@@ -138,14 +138,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f09aaa54a7ef0070800000000000000
-      internalID: 8074927349980369138
+      spriteID: f9b7a0634560497b0800000000000000
+      internalID: -5218539109461886049
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_attack_1_2
+      name: slime_attack_effect_2
       rect:
         serializedVersion: 2
         x: 720
@@ -159,14 +159,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 294ec3659ded476b0800000000000000
-      internalID: -5299365836472130414
+      spriteID: 40103b1e5273ef240800000000000000
+      internalID: 4827356486427672836
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_attack_1_3
+      name: slime_attack_effect_3
       rect:
         serializedVersion: 2
         x: 1080
@@ -180,8 +180,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e1c16b097cdcd020800000000000000
-      internalID: 2368009916530147809
+      spriteID: 4d51a23854b474f90800000000000000
+      internalID: -6969519136407153196
       vertices: []
       indices: 
       edges: []

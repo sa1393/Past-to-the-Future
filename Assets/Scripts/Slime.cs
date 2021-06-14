@@ -6,10 +6,10 @@ public class Slime : Enemy
 {
     CapsuleCollider2D rangeCollider;
 
-    //°ø°Ý·Â
-    //»ç°Å¸®
-    //ÀÌµ¿¼Óµµ
-    //°ø°Ý¼Óµµ
+    //ï¿½ï¿½ï¿½Ý·ï¿½
+    //ï¿½ï¿½Å¸ï¿½
+    //ï¿½Ìµï¿½ï¿½Óµï¿½
+    //ï¿½ï¿½ï¿½Ý¼Óµï¿½
 
     private void Awake()
     {
@@ -26,13 +26,15 @@ public class Slime : Enemy
     private void Update()
     {
         base.Update();
-        StartMove(1f * standardNumber, 3f);
     }
 
     private void FixedUpdate()
     {
-        //Move();
-        SlimeMove();
+        if (canHit)
+        {
+            SlimeMove();
+
+        }
     }
 
     protected override void Init()
@@ -42,6 +44,7 @@ public class Slime : Enemy
         attackDamage = 10;
         attackSpeed = 4f;
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -69,8 +72,57 @@ public class Slime : Enemy
             if (right != isRight)
                 Flip();
 
-            enemyRigid.velocity = new Vector2(0.2f * standardNumber * (right ? 1 : -1) , enemyRigid.velocity.y);
+            if (Mathf.Abs(player.transform.position.x - transform.position.x) < 200)
+            {
+                StartCoroutine("SlimeBiteAttack", 0.5);
+                return;
+
+            }
+
+            enemyRigid.velocity = new Vector2(0.4f * standardNumber * (right ? 1 : -1) , enemyRigid.velocity.y);
         }
+    }
+
+    //ê³µê²© ì‹œìž‘
+    IEnumerator SlimeBiteAttack(float time)
+    {
+        if (!hitting && !attacking)
+        {
+            float exitTime = 0.8f;
+            attacking = true;
+            yield return new WaitForSeconds(time);
+            SlimeBite();
+
+            while (!animator.GetCurrentAnimatorStateInfo(0).IsName("slime_attack2"))
+            {
+                //ì „í™˜ ì¤‘ì¼ ë•Œ ì‹¤í–‰ë˜ëŠ” ë¶€ë¶„
+                yield return null;
+            }
+
+            while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < exitTime)
+            {
+                yield return null;
+            }
+
+            attacking = false;  
+        }
+    }
+
+    private void SlimeBite()
+    {
+        animator.SetTrigger("isAttack2");
+    }
+
+    private void BiteAttackOn()
+    {
+        effect.tag = "EnemyAttack";
+        effect.layer = 9;
+        effectAnimator.SetTrigger("isEffect1");
+    }
+    private void BiteAttackOff()
+    {
+        effect.tag = "Untagged";
+        effect.layer = 0;
     }
 
 
