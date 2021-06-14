@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 1ef772c0603587e42ae4b89d54302754
+guid: 256c89f227fd0e747a354c6d841ce074
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7755010275377664734
-    second: player_attack_1_0
+      213: 7024488847099992786
+    second: player_jump_attack_0
   - first:
-      213: 8074927349980369138
-    second: player_attack_1_1
+      213: 6650937464498352116
+    second: player_jump_attack_1
   - first:
-      213: -5299365836472130414
-    second: player_attack_1_2
+      213: -8949142943305084847
+    second: player_jump_attack_2
   - first:
-      213: 2368009916530147809
-    second: player_attack_1_3
+      213: -6372534596044365738
+    second: player_jump_attack_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -103,7 +103,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player_attack_1_0
+      name: player_jump_attack_0
       rect:
         serializedVersion: 2
         x: 0
@@ -117,14 +117,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22d2c9a0e3ba06490800000000000000
-      internalID: -7755010275377664734
+      spriteID: 2da961c936ffb7160800000000000000
+      internalID: 7024488847099992786
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_attack_1_1
+      name: player_jump_attack_1
       rect:
         serializedVersion: 2
         x: 500
@@ -138,14 +138,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f09aaa54a7ef0070800000000000000
-      internalID: 8074927349980369138
+      spriteID: 4ffe2c2c260ec4c50800000000000000
+      internalID: 6650937464498352116
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_attack_1_2
+      name: player_jump_attack_2
       rect:
         serializedVersion: 2
         x: 1000
@@ -159,14 +159,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 294ec3659ded476b0800000000000000
-      internalID: -5299365836472130414
+      spriteID: 1505b1c58e14ec380800000000000000
+      internalID: -8949142943305084847
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_attack_1_3
+      name: player_jump_attack_3
       rect:
         serializedVersion: 2
         x: 1500
@@ -180,8 +180,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e1c16b097cdcd020800000000000000
-      internalID: 2368009916530147809
+      spriteID: 65063eb4c853097a0800000000000000
+      internalID: -6372534596044365738
       vertices: []
       indices: 
       edges: []

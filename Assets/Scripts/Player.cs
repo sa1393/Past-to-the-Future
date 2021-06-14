@@ -26,6 +26,8 @@ public class Player : LifeObject
     //현재 플레이어가 오른쪽을 바라보고 있는가?
     private bool isRight = true;
 
+    private bool isGround = true;
+
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -60,6 +62,7 @@ public class Player : LifeObject
 
     private void FixedUpdate()
     {
+        animator.SetBool("isGround", isGround);
         GroundCheck();
         PlayerMove();
     }
@@ -88,6 +91,10 @@ public class Player : LifeObject
         if (rayHit.collider != null)
         {
             isJump = false;
+            isGround = true;
+        } else
+        {
+            isGround = false;
         }
     }
 
@@ -149,10 +156,6 @@ public class Player : LifeObject
     {
         animator.SetTrigger("isAttack");
     }
-
-
-
-
     //플레이어 스프라이트 전환
     void Flip()
     {

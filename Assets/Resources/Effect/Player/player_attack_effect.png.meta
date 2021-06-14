@@ -129,10 +129,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 130.90909
-        height: 131
+        width: 1000
+        height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -148,12 +148,12 @@ TextureImporter:
       name: player_attack_effect_1
       rect:
         serializedVersion: 2
-        x: 130
+        x: 1000
         y: 0
-        width: 130.90909
-        height: 131
+        width: 1000
+        height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -169,12 +169,12 @@ TextureImporter:
       name: player_attack_effect_2
       rect:
         serializedVersion: 2
-        x: 260
+        x: 2000
         y: 0
-        width: 130.90909
-        height: 131
+        width: 1000
+        height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -190,12 +190,12 @@ TextureImporter:
       name: player_attack_effect_3
       rect:
         serializedVersion: 2
-        x: 390
+        x: 3000
         y: 0
-        width: 130.90909
-        height: 131
+        width: 1000
+        height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -211,12 +211,12 @@ TextureImporter:
       name: player_attack_effect_4
       rect:
         serializedVersion: 2
-        x: 520
+        x: 4000
         y: 0
-        width: 130.90909
-        height: 131
+        width: 1000
+        height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -232,12 +232,12 @@ TextureImporter:
       name: player_attack_effect_5
       rect:
         serializedVersion: 2
-        x: 650
+        x: 5000
         y: 0
-        width: 130.90909
-        height: 131
+        width: 1000
+        height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -253,12 +253,12 @@ TextureImporter:
       name: player_attack_effect_6
       rect:
         serializedVersion: 2
-        x: 780
+        x: 6000
         y: 0
-        width: 130.90909
-        height: 131
+        width: 1000
+        height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -274,12 +274,12 @@ TextureImporter:
       name: player_attack_effect_7
       rect:
         serializedVersion: 2
-        x: 910
+        x: 7000
         y: 0
-        width: 130.90909
-        height: 131
+        width: 1000
+        height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -295,12 +295,12 @@ TextureImporter:
       name: player_attack_effect_8
       rect:
         serializedVersion: 2
-        x: 1040
+        x: 8000
         y: 0
-        width: 130.90909
-        height: 131
+        width: 1000
+        height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -316,12 +316,12 @@ TextureImporter:
       name: player_attack_effect_9
       rect:
         serializedVersion: 2
-        x: 1171
+        x: 9000
         y: 0
-        width: 131
-        height: 131
+        width: 1000
+        height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -337,12 +337,12 @@ TextureImporter:
       name: player_attack_effect_10
       rect:
         serializedVersion: 2
-        x: 1300
+        x: 10000
         y: 0
-        width: 130.90909
-        height: 131
+        width: 1000
+        height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
