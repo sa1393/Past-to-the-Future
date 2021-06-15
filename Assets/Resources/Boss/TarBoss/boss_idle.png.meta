@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: c00d955a665574740bfa81f8b89c92ab
+guid: cd48cc12329dda24889d94c23b246ec0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3412870504123254812
-    second: sap_move_0
+      213: 5742144190005862570
+    second: boss_idle_0
   - first:
-      213: -4404795449374658551
-    second: sap_move_1
+      213: -3085074806657409077
+    second: boss_idle_1
   - first:
-      213: -4624199161476281269
-    second: sap_move_2
+      213: 3406571612866355325
+    second: boss_idle_2
   - first:
-      213: 297760949710509894
-    second: sap_move_3
+      213: -7339561905887146232
+    second: boss_idle_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -103,55 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sap_move_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1146
-        width: 1632
-        height: 1146
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c18ccae24a3fc5f20800000000000000
-      internalID: 3412870504123254812
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sap_move_1
-      rect:
-        serializedVersion: 2
-        x: 1632
-        y: 1146
-        width: 1632
-        height: 1146
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 90034cb50e50fd2c0800000000000000
-      internalID: -4404795449374658551
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sap_move_2
+      name: boss_idle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1632
-        height: 1146
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,20 +117,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4c0c89dc5b83dfb0800000000000000
-      internalID: -4624199161476281269
+      spriteID: aa06f56b7b130bf40800000000000000
+      internalID: 5742144190005862570
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sap_move_3
+      name: boss_idle_1
       rect:
         serializedVersion: 2
-        x: 1632
+        x: 480
         y: 0
-        width: 1632
-        height: 1146
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,8 +138,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6475a73910cd12400800000000000000
-      internalID: 297760949710509894
+      spriteID: bcf9dab0fcc9f25d0800000000000000
+      internalID: -3085074806657409077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_idle_2
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 480
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7024d645d2964f20800000000000000
+      internalID: 3406571612866355325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_idle_3
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 480
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80f8b905553a42a90800000000000000
+      internalID: -7339561905887146232
       vertices: []
       indices: 
       edges: []

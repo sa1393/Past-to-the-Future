@@ -6,10 +6,10 @@ public class Slime : Enemy
 {
     CapsuleCollider2D rangeCollider;
 
-    //ï¿½ï¿½ï¿½İ·ï¿½
-    //ï¿½ï¿½Å¸ï¿½
-    //ï¿½Ìµï¿½ï¿½Óµï¿½
-    //ï¿½ï¿½ï¿½İ¼Óµï¿½
+    //?????
+    //????
+    //??????
+    //??????
 
     private void Awake()
     {
@@ -33,7 +33,6 @@ public class Slime : Enemy
         if (canHit)
         {
             SlimeMove();
-
         }
     }
 
@@ -83,7 +82,7 @@ public class Slime : Enemy
         }
     }
 
-    //ê³µê²© ì‹œì‘
+    //°ø°İ ½ÃÀÛ
     IEnumerator SlimeBiteAttack(float time)
     {
         if (!hitting && !attacking)
@@ -95,7 +94,7 @@ public class Slime : Enemy
 
             while (!animator.GetCurrentAnimatorStateInfo(0).IsName("slime_attack2"))
             {
-                //ì „í™˜ ì¤‘ì¼ ë•Œ ì‹¤í–‰ë˜ëŠ” ë¶€ë¶„
+                //ÀüÈ¯ ÁßÀÏ ¶§ ½ÇÇàµÇ´Â ºÎºĞ
                 yield return null;
             }
 
@@ -138,14 +137,11 @@ public class Slime : Enemy
         {
             sr.color = new Color(1, 1, 1, 0.4f);
         }
-        
-
     }
 
     protected override IEnumerator Die(float second)
     {
         yield return new WaitForSeconds(second);
         Destroy(transform.parent.gameObject);
-
     }
 }

@@ -63,7 +63,7 @@ AnimatorStateMachine:
     m_Position: {x: 570, y: 100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6465325359542734188}
-    m_Position: {x: 270, y: -10, z: 0}
+    m_Position: {x: 360, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3553005003494202520}
     m_Position: {x: 10, y: 240, z: 0}
@@ -72,7 +72,7 @@ AnimatorStateMachine:
     m_Position: {x: 40, y: -120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6904954059377455618}
-    m_Position: {x: 370, y: -150, z: 0}
+    m_Position: {x: 510, y: -130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8917135746519202144}
     m_Position: {x: 240, y: 230, z: 0}
@@ -319,31 +319,31 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isJump
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isAttack
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isAttack2
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isDead
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer

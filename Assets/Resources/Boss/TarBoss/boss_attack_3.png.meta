@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: c00d955a665574740bfa81f8b89c92ab
+guid: 72b6325b0ba169242bca7ee74d80199a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3412870504123254812
-    second: sap_move_0
+      213: -8623592797578111044
+    second: boss_attack_3_0
   - first:
-      213: -4404795449374658551
-    second: sap_move_1
+      213: -6310729119038218181
+    second: boss_attack_3_1
   - first:
-      213: -4624199161476281269
-    second: sap_move_2
+      213: 4912643429945002348
+    second: boss_attack_3_2
   - first:
-      213: 297760949710509894
-    second: sap_move_3
+      213: -9045643945384751914
+    second: boss_attack_3_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -103,55 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sap_move_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1146
-        width: 1632
-        height: 1146
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c18ccae24a3fc5f20800000000000000
-      internalID: 3412870504123254812
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sap_move_1
-      rect:
-        serializedVersion: 2
-        x: 1632
-        y: 1146
-        width: 1632
-        height: 1146
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 90034cb50e50fd2c0800000000000000
-      internalID: -4404795449374658551
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sap_move_2
+      name: boss_attack_3_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1632
-        height: 1146
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,20 +117,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4c0c89dc5b83dfb0800000000000000
-      internalID: -4624199161476281269
+      spriteID: cb75db45a08d25880800000000000000
+      internalID: -8623592797578111044
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sap_move_3
+      name: boss_attack_3_1
       rect:
         serializedVersion: 2
-        x: 1632
+        x: 480
         y: 0
-        width: 1632
-        height: 1146
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,8 +138,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6475a73910cd12400800000000000000
-      internalID: 297760949710509894
+      spriteID: b30630a4d49cb68a0800000000000000
+      internalID: -6310729119038218181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_attack_3_2
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 480
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c694706db273d2440800000000000000
+      internalID: 4912643429945002348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_attack_3_3
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 480
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dccdaee1ca677280800000000000000
+      internalID: -9045643945384751914
       vertices: []
       indices: 
       edges: []
