@@ -6,11 +6,6 @@ public class Slime : Enemy
 {
     CapsuleCollider2D rangeCollider;
 
-    //?????
-    //????
-    //??????
-    //??????
-
     private void Awake()
     {
         base.Awake();
@@ -18,18 +13,16 @@ public class Slime : Enemy
         Init();
         rangeCollider = GetComponent<CapsuleCollider2D>();
     }
-
-    private void Start()
-    {
-    }
-
     private void Update()
     {
         base.Update();
+        if (GameManager.Instance.timeStop) return;
+
     }
 
     private void FixedUpdate()
     {
+        if (GameManager.Instance.timeStop) return;
         if (canHit)
         {
             SlimeMove();
@@ -39,7 +32,8 @@ public class Slime : Enemy
     protected override void Init()
     {
         hp = 4;
-        moveSpeed = 5f;
+        moveSpeed = 0.4f;
+        moveCurrentSpeed = moveSpeed;
         attackDamage = 10;
         attackSpeed = 4f;
     }
@@ -78,7 +72,7 @@ public class Slime : Enemy
 
             }
 
-            enemyRigid.velocity = new Vector2(0.4f * standardNumber * (right ? 1 : -1) , enemyRigid.velocity.y);
+            enemyRigid.velocity = new Vector2(moveCurrentSpeed * standardNumber * (right ? 1 : -1) , enemyRigid.velocity.y);
         }
     }
 

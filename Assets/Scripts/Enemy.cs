@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
+
 
 public abstract class Enemy : LifeObject
 {
@@ -15,15 +15,13 @@ public abstract class Enemy : LifeObject
     protected Animator animator;
     protected Animator effectAnimator;
 
-
-
     //임시
     protected SpriteRenderer sr;
 
+    public float timeSlowNumber = 0.2f;
 
     //현재 자신이 오른쪽을 바라보고 있는가?
     protected bool isRight = false;
-
 
     public int hp;
     //공격력
@@ -32,6 +30,7 @@ public abstract class Enemy : LifeObject
     public int range;
     //이동속도
     public float moveSpeed = 1;
+    public float moveCurrentSpeed = 1;
     //공격속도
     public float attackSpeed;
     public bool isDead = false;
@@ -57,6 +56,8 @@ public abstract class Enemy : LifeObject
 
         effect = transform.parent.GetChild(2).gameObject;
         effectAnimator = effect.GetComponent<Animator>();
+
+        GameManager.Instance.enemies.Add(this);
         
     }
 
@@ -76,7 +77,7 @@ public abstract class Enemy : LifeObject
         {
             currentHitDelay += Time.deltaTime;
 
-            if(currentHitDelay >= hitDelay)
+            if (currentHitDelay >= hitDelay)
             {
                 currentHitDelay = 0;
                 canHit = true;
@@ -84,6 +85,7 @@ public abstract class Enemy : LifeObject
                 sr.color = new Color(1, 1, 1, 1f);
             }
         }
+        if (GameManager.Instance.timeStop) return;
 
         if (!canAttack)
         {
@@ -140,6 +142,64 @@ public abstract class Enemy : LifeObject
             attacking = false;
         }
     }
+
+    public void TimeStop()
+    {
+        if (GameManager.Instance.timeStop)
+        {
+            animator.speed = 0;
+            effectAnimator.speed = 0;
+        }
+        else
+        {
+            if (GameManager.Instance.timeSlow)
+            {
+                animator.speed = timeSlowNumber;
+                effectAnimator.speed = timeSlowNumber;
+            }
+            else
+            {
+                animator.speed = 1;
+                effectAnimator.speed = 1;
+            }
+
+
+        }
+    }
+
+    public void TimeSlow()
+    {
+        if (GameManager.Instance.timeStop)
+        {
+            if (GameManager.Instance.timeSlow)
+            {
+                moveCurrentSpeed = moveCurrentSpeed * timeSlowNumber;
+            }
+            else
+            {
+                moveCurrentSpeed = moveCurrentSpeed / timeSlowNumber;
+            }
+        }
+        else
+        {
+            if (GameManager.Instance.timeSlow)
+            {
+                animator.speed = timeSlowNumber;
+                effectAnimator.speed = timeSlowNumber;
+                moveCurrentSpeed = moveCurrentSpeed * timeSlowNumber;
+                Debug.Log("test");
+            }
+            else
+            {
+                animator.speed = 1;
+                effectAnimator.speed = 1;
+                moveCurrentSpeed = moveCurrentSpeed / timeSlowNumber;
+            }
+        }
+        
+
+    }
+
 
     protected void Flip()
     {

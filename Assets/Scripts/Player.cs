@@ -5,10 +5,18 @@ using UnityEngine;
 public class Player : LifeObject
 {
     public float moveMaxSpeed = 30000f;
+    public float currentMoveMaxSpeed = 30000f;
     public float moveSpeed = 45000f;
+    public float currentMoveSpeed = 45000f;
+
     public float jumpForce = 2000f;
 
+    public bool timeFast = false;
+    public float timeFastNumber = 1.5f;
+
     public bool canAttack = true;
+
+
 
     //체력
     public int hp;
@@ -58,6 +66,23 @@ public class Player : LifeObject
             PlayerAttack();
         }
 
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            GameManager.Instance.TimeStop();
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            GameManager.Instance.TimeSlow();
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            TimeFast();
+        }
+
+
     }
 
     private void FixedUpdate()
@@ -98,6 +123,22 @@ public class Player : LifeObject
         }
     }
 
+    void TimeFast()
+    {
+        timeFast = !timeFast;
+        if (timeFast)
+        {
+            currentMoveMaxSpeed = currentMoveMaxSpeed * timeFastNumber;
+            currentMoveSpeed = currentMoveSpeed * timeFastNumber;
+            animator.speed = animator.speed * timeFastNumber;
+        }else
+        {
+            currentMoveMaxSpeed = currentMoveMaxSpeed / timeFastNumber;
+            currentMoveSpeed = currentMoveSpeed / timeFastNumber;
+            animator.speed = animator.speed / timeFastNumber;
+        }
+    }
+
     //플레이어 이동
     void PlayerMove()
     {
@@ -106,7 +147,7 @@ public class Player : LifeObject
         if(axis_X != 0)
         {
             rigid.velocity = new Vector2(0, rigid.velocity.y);
-            rigid.AddForce(Vector2.right * axis_X * moveSpeed);
+            rigid.AddForce(Vector2.right * axis_X * currentMoveSpeed);
         }
 
         if(axis_X < 0 && isRight || axis_X > 0 && !isRight)
@@ -115,11 +156,11 @@ public class Player : LifeObject
         }
 
         //속도 제한
-        if (rigid.velocity.x >= moveMaxSpeed)
+        if (rigid.velocity.x >= currentMoveMaxSpeed)
         {
             rigid.velocity = new Vector2(2.5f, rigid.velocity.y);
         }
-        else if (rigid.velocity.x <= moveMaxSpeed * -1)
+        else if (rigid.velocity.x <= currentMoveMaxSpeed * -1)
         {
             rigid.velocity = new Vector2(-2.5f, rigid.velocity.y);
         }
