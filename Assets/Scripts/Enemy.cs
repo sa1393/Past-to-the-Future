@@ -61,7 +61,7 @@ public abstract class Enemy : LifeObject
         
     }
 
-    private void Start()
+    protected void Start()
     {
         player = GameObject.Find("Player").GetComponent<Player>();
     }

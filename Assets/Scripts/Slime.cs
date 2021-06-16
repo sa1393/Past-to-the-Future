@@ -29,6 +29,11 @@ public class Slime : Enemy
         }
     }
 
+    private void Start()
+    {
+        base.Start();
+    }
+
     protected override void Init()
     {
         hp = 4;
@@ -46,10 +51,16 @@ public class Slime : Enemy
         {
 
             PlayerAttackInfo tempPlayer = collision.gameObject.GetComponent<PlayerAttackInfo>();
-            
+            PlayerAttackEffect effect = collision.gameObject.GetComponent<PlayerAttackEffect>();
+
             if (tempPlayer != null)
             {
                 Hit(tempPlayer.attackDamage);
+                canHit = false;
+            }
+            else
+            {
+                Hit(effect.damage);
                 canHit = false;
             }
         }

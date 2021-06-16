@@ -24,6 +24,8 @@ public class Player : LifeObject
     private Animator animator;
     public Collider2D playerCollider;
 
+    public PlayerAttackEffect effect;
+
     //점프중
     private bool isJump = false;
     //점프 횟수
@@ -35,6 +37,8 @@ public class Player : LifeObject
     //플레이어가 현재 스킬을 사용할 수 있는가?
     private bool skillEnable = true;
 
+    private bool attacking = false;
+
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -45,6 +49,7 @@ public class Player : LifeObject
     private void Start()
     {
         Init();
+        effect = transform.GetChild(0).GetComponent<PlayerAttackEffect>();
     }
     private void Init() {
         hp = 100;
@@ -60,7 +65,7 @@ public class Player : LifeObject
         //공격
         if (Input.GetMouseButton(0) && canAttack)
         {
-            PlayerAttack();
+            StartCoroutine("PlayerAttack");
         }
 
         if(skillEnable)
@@ -92,17 +97,13 @@ public class Player : LifeObject
         PlayerMove();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Enemy enemy = collision.gameObject.transform.parent.GetChild(0).GetComponent<Enemy>();
         if (collision.gameObject.tag == "EnemyAttack")
         {
 
-            OnDamaged(collision.transform.position);
+            OnDamaged(enemy.attackDamage);
         }
     }
 
@@ -161,6 +162,8 @@ public class Player : LifeObject
     //플레이어 이동
     void PlayerMove()
     {
+        if (attacking) return;
+
         float axis_X = Input.GetAxis("Horizontal");
 
         if(axis_X != 0)
@@ -199,23 +202,37 @@ public class Player : LifeObject
     }
 
     //플레이어 피격 이벤트
-    void OnDamaged(Vector2 targetPos)
+    void OnDamaged(int damage)
     {
-        //레이어 변경
-        //Debug.Log("gg");
-        //rigid.velocity = Vector2.zero;
-        //int dirc = transform.position.x - targetPos.x > 0 ? 1 : -1;
-        //Debug.Log(dirc);
-        //rigid.AddForce(new Vector2(dirc, 1)*20, ForceMode2D.Impulse);
+        hp -= damage;
+        if (hp <= 0)
+        {
+            StartCoroutine("Die");
+        }else
+        {
+            animator.SetTrigger("isHit");
 
-        //애니메이션 파라미터 설정
-        animator.SetTrigger("isHit");
+        }
+
+
     }
 
-    void PlayerAttack()
+    IEnumerator PlayerAttack()
     {
+        attacking = true;
         animator.SetTrigger("isAttack");
+
+        yield return new WaitForSeconds(0.6f);
+        attacking = false;
     }
+
+    void PlayerAttackEffect()
+    {
+        effect.damage = attackDamage;
+        effect.animator.SetTrigger("isAttack");
+    }
+
+
     //플레이어 스프라이트 전환
     void Flip()
     {
@@ -223,5 +240,14 @@ public class Player : LifeObject
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
+    }
+
+    IEnumerator Die()
+    {
+        animator.SetBool("isDead", true);
+
+        yield return new WaitForSeconds(1f);
+
+        Destroy(this.gameObject);
     }
 }

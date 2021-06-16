@@ -1,40 +1,40 @@
 fileFormatVersion: 2
-guid: 9fa4eb4a519179841b1f547e9a53d9cf
+guid: 765b3d3a677b05340b9989a802893fc7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7734800875413660895
-    second: player_attack_effect_0
+      213: 7386890940831903533
+    second: attack_effect_0
   - first:
-      213: -7255778897532348663
-    second: player_attack_effect_1
+      213: -9079545175819313884
+    second: attack_effect_1
   - first:
-      213: -5266006394519163543
-    second: player_attack_effect_2
+      213: 4960718392958072578
+    second: attack_effect_2
   - first:
-      213: 2005943894316079938
-    second: player_attack_effect_3
+      213: -8406352744801909369
+    second: attack_effect_3
   - first:
-      213: 4928901388462688584
-    second: player_attack_effect_4
+      213: 2755880429849033000
+    second: attack_effect_4
   - first:
-      213: -2877289332176183802
-    second: player_attack_effect_5
+      213: -5020050738577689090
+    second: attack_effect_5
   - first:
-      213: 7696002901686431763
-    second: player_attack_effect_6
+      213: -660117324857597125
+    second: attack_effect_6
   - first:
-      213: 5761164258818917977
-    second: player_attack_effect_7
+      213: 8875251539519634170
+    second: attack_effect_7
   - first:
-      213: 3223860497431354654
-    second: player_attack_effect_8
+      213: -5443048248037783354
+    second: attack_effect_8
   - first:
-      213: 7197771824543831069
-    second: player_attack_effect_9
+      213: 3259045088969913080
+    second: attack_effect_9
   - first:
-      213: 774575228491689945
-    second: player_attack_effect_10
+      213: 2635626748697890559
+    second: attack_effect_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -65,9 +65,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
-    aniso: 1
-    mipBias: 0
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -120,17 +120,29 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player_attack_effect_0
+      name: attack_effect_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1000
-        height: 1000
+        width: 76.90909
+        height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -138,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd4696b5a68875b60800000000000000
-      internalID: 7734800875413660895
+      spriteID: d2f26da5c22838660800000000000000
+      internalID: 7386890940831903533
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_attack_effect_1
+      name: attack_effect_1
       rect:
         serializedVersion: 2
-        x: 1000
+        x: 76
         y: 0
-        width: 1000
-        height: 1000
+        width: 76.90909
+        height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9071fc3198b4e4b90800000000000000
-      internalID: -7255778897532348663
+      spriteID: 42d9d21a4c9fef180800000000000000
+      internalID: -9079545175819313884
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_attack_effect_2
+      name: attack_effect_2
       rect:
         serializedVersion: 2
-        x: 2000
+        x: 152
         y: 0
-        width: 1000
-        height: 1000
+        width: 76.90909
+        height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,20 +192,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96defbda5136be6b0800000000000000
-      internalID: -5266006394519163543
+      spriteID: 207330b681308d440800000000000000
+      internalID: 4960718392958072578
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_attack_effect_3
+      name: attack_effect_3
       rect:
         serializedVersion: 2
-        x: 3000
+        x: 228
         y: 0
-        width: 1000
-        height: 1000
+        width: 76.90909
+        height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -201,20 +213,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24bd21c085b86db10800000000000000
-      internalID: 2005943894316079938
+      spriteID: 785c375a7b2a65b80800000000000000
+      internalID: -8406352744801909369
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_attack_effect_4
+      name: attack_effect_4
       rect:
         serializedVersion: 2
-        x: 4000
+        x: 304
         y: 0
-        width: 1000
-        height: 1000
+        width: 76.90909
+        height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,20 +234,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8498f38c2b9f66440800000000000000
-      internalID: 4928901388462688584
+      spriteID: 8293a9056aade3620800000000000000
+      internalID: 2755880429849033000
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_attack_effect_5
+      name: attack_effect_5
       rect:
         serializedVersion: 2
-        x: 5000
+        x: 380
         y: 0
-        width: 1000
-        height: 1000
+        width: 76.90909
+        height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -243,20 +255,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60e1e9fc890d118d0800000000000000
-      internalID: -2877289332176183802
+      spriteID: ef5b3ac5372355ab0800000000000000
+      internalID: -5020050738577689090
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_attack_effect_6
+      name: attack_effect_6
       rect:
         serializedVersion: 2
-        x: 6000
+        x: 456
         y: 0
-        width: 1000
-        height: 1000
+        width: 76.90909
+        height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -264,20 +276,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31035692dd1bdca60800000000000000
-      internalID: 7696002901686431763
+      spriteID: b3328cd5acac6d6f0800000000000000
+      internalID: -660117324857597125
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_attack_effect_7
+      name: attack_effect_7
       rect:
         serializedVersion: 2
-        x: 7000
+        x: 532
         y: 0
-        width: 1000
-        height: 1000
+        width: 76.90909
+        height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -285,20 +297,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95604939e54c3ff40800000000000000
-      internalID: 5761164258818917977
+      spriteID: afa7e49804a3b2b70800000000000000
+      internalID: 8875251539519634170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_attack_effect_8
+      name: attack_effect_8
       rect:
         serializedVersion: 2
-        x: 8000
+        x: 608
         y: 0
-        width: 1000
-        height: 1000
+        width: 76.90909
+        height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -306,20 +318,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1d5fcaaa047dbc20800000000000000
-      internalID: 3223860497431354654
+      spriteID: 6c84568f4786674b0800000000000000
+      internalID: -5443048248037783354
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_attack_effect_9
+      name: attack_effect_9
       rect:
         serializedVersion: 2
-        x: 9000
+        x: 684
         y: 0
-        width: 1000
-        height: 1000
+        width: 76.90909
+        height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -327,20 +339,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d141048c65f93e360800000000000000
-      internalID: 7197771824543831069
+      spriteID: 8f27803cd347a3d20800000000000000
+      internalID: 3259045088969913080
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_attack_effect_10
+      name: attack_effect_10
       rect:
         serializedVersion: 2
-        x: 10000
+        x: 760
         y: 0
-        width: 1000
-        height: 1000
+        width: 76.90909
+        height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -348,8 +360,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9df60120118dfba00800000000000000
-      internalID: 774575228491689945
+      spriteID: ffec7a45090a39420800000000000000
+      internalID: 2635626748697890559
       vertices: []
       indices: 
       edges: []
