@@ -15,9 +15,6 @@ public class Player : LifeObject
     public float timeFastNumber = 1.5f;
 
     public bool canAttack = true;
-
-
-
     //체력
     public int hp;
     //공격력
@@ -33,8 +30,10 @@ public class Player : LifeObject
     private int jumpCount = 0;
     //현재 플레이어가 오른쪽을 바라보고 있는가?
     private bool isRight = true;
-
+    //플레이어가 현재 땅을 밟고 있는가?
     private bool isGround = true;
+    //플레이어가 현재 스킬을 사용할 수 있는가?
+    private bool skillEnable = true;
 
     private void Awake()
     {
@@ -58,31 +57,32 @@ public class Player : LifeObject
         {
             Jump();
         }
-
-
         //공격
         if (Input.GetMouseButton(0) && canAttack)
         {
             PlayerAttack();
         }
 
-        if (Input.GetKeyDown(KeyCode.J))
+        if(skillEnable)
         {
-            GameManager.Instance.TimeStop();
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                skillEnable = false;
+                StartCoroutine(TimeStop());
+            }
+
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                skillEnable = false;
+                StartCoroutine(TimeSlow());
+            }
+
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                skillEnable = false;
+                StartCoroutine(TimeFast());
+            }
         }
-
-
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            GameManager.Instance.TimeSlow();
-        }
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            TimeFast();
-        }
-
-
     }
 
     private void FixedUpdate()
@@ -123,20 +123,39 @@ public class Player : LifeObject
         }
     }
 
-    void TimeFast()
+    IEnumerator TimeStop()
     {
-        timeFast = !timeFast;
-        if (timeFast)
-        {
-            currentMoveMaxSpeed = currentMoveMaxSpeed * timeFastNumber;
-            currentMoveSpeed = currentMoveSpeed * timeFastNumber;
-            animator.speed = animator.speed * timeFastNumber;
-        }else
-        {
-            currentMoveMaxSpeed = currentMoveMaxSpeed / timeFastNumber;
-            currentMoveSpeed = currentMoveSpeed / timeFastNumber;
-            animator.speed = animator.speed / timeFastNumber;
-        }
+        GameManager.Instance.TimeStop();
+
+        yield return new WaitForSeconds(3f);
+
+        GameManager.Instance.TimeStop();
+        skillEnable = true;
+    }
+
+    IEnumerator TimeSlow()
+    {
+        GameManager.Instance.TimeSlow();
+
+        yield return new WaitForSeconds(5f);
+
+        GameManager.Instance.TimeSlow();
+        skillEnable = true;
+    }
+
+    IEnumerator TimeFast()
+    {
+        currentMoveMaxSpeed = currentMoveMaxSpeed * timeFastNumber;
+        currentMoveSpeed = currentMoveSpeed * timeFastNumber;
+        animator.speed = animator.speed * timeFastNumber;
+
+        yield return new WaitForSeconds(5f);
+
+        currentMoveMaxSpeed = currentMoveMaxSpeed / timeFastNumber;
+        currentMoveSpeed = currentMoveSpeed / timeFastNumber;
+        animator.speed = animator.speed / timeFastNumber;
+
+        skillEnable = true;
     }
 
     //플레이어 이동
