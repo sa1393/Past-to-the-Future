@@ -10,9 +10,11 @@ public class PlayerAttackEffect : MonoBehaviour
 
     void EffectToggle()
     {
-        Destroy(gameObject.GetComponent<Collider2D>());
-        PolygonCollider2D col = gameObject.AddComponent<PolygonCollider2D>() as PolygonCollider2D;
-        col.enabled = false;
+        Destroy(gameObject.GetComponent<PolygonCollider2D>());
+
+        PolygonCollider2D col = gameObject.AddComponent<PolygonCollider2D>();
+        
+        
     }
 
     private void Awake()
@@ -22,11 +24,6 @@ public class PlayerAttackEffect : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.Find("Player").GetComponent<Player>();
-    }
-
-    void Update()
-    {
-        
+        player = GameObject.Find("player").GetComponent<Player>();
     }
 }

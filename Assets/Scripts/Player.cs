@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class Player : LifeObject
 {
-    public float moveMaxSpeed = 30000f;
-    public float currentMoveMaxSpeed = 30000f;
-    public float moveSpeed = 45000f;
-    public float currentMoveSpeed = 45000f;
+    float moveSpeed = 1000f;
+    float currentMoveSpeed = 1000f;
 
-    public float jumpForce = 2000f;
+    float jumpForce = 2000f;
 
     public bool timeFast = false;
     public float timeFastNumber = 1.5f;
 
-    public bool canAttack = true;
+    bool canAttack = true;
+
+    float currentAttackDelay = 0;
+    float attackDelay = 0.5f;
     //체력
     public int hp;
     //공격력
@@ -58,14 +59,25 @@ public class Player : LifeObject
 
     void Update()
     {
+        if (!canAttack)
+        {
+            currentAttackDelay += Time.deltaTime;
+
+            if (currentAttackDelay >= attackDelay)
+            {
+                currentAttackDelay = 0;
+                canAttack = true;
+            }
+        }
+
         if (Input.GetButton("Jump") && !isJump)
         {
             Jump();
         }
         //공격
-        if (Input.GetMouseButton(0) && canAttack)
+        if (Input.GetMouseButton(0) && canAttack && !attacking)
         {
-            StartCoroutine("PlayerAttack");
+            PlayerAttack();
         }
 
         if(skillEnable)
@@ -146,13 +158,11 @@ public class Player : LifeObject
 
     IEnumerator TimeFast()
     {
-        currentMoveMaxSpeed = currentMoveMaxSpeed * timeFastNumber;
         currentMoveSpeed = currentMoveSpeed * timeFastNumber;
         animator.speed = animator.speed * timeFastNumber;
 
         yield return new WaitForSeconds(5f);
 
-        currentMoveMaxSpeed = currentMoveMaxSpeed / timeFastNumber;
         currentMoveSpeed = currentMoveSpeed / timeFastNumber;
         animator.speed = animator.speed / timeFastNumber;
 
@@ -162,30 +172,25 @@ public class Player : LifeObject
     //플레이어 이동
     void PlayerMove()
     {
-        if (attacking) return;
 
-        float axis_X = Input.GetAxis("Horizontal");
+        float axis_X = Input.GetAxisRaw("Horizontal");
 
-        if(axis_X != 0)
+        rigid.velocity = new Vector2(axis_X * currentMoveSpeed, rigid.velocity.y);
+
+        if(!attacking )
         {
-            rigid.velocity = new Vector2(0, rigid.velocity.y);
-            rigid.AddForce(Vector2.right * axis_X * currentMoveSpeed);
+            if (isRight && axis_X == -1)
+            {
+                Flip();
+            }
+
+            if (!isRight && axis_X == 1)
+            {
+                Flip();
+            }
+
         }
 
-        if(axis_X < 0 && isRight || axis_X > 0 && !isRight)
-        {
-            Flip();
-        }
-
-        //속도 제한
-        if (rigid.velocity.x >= currentMoveMaxSpeed)
-        {
-            rigid.velocity = new Vector2(2.5f, rigid.velocity.y);
-        }
-        else if (rigid.velocity.x <= currentMoveMaxSpeed * -1)
-        {
-            rigid.velocity = new Vector2(-2.5f, rigid.velocity.y);
-        }
         //애니메이션 파라미터 설정
         animator.SetFloat("axis_X", Mathf.Abs(axis_X));
     }
@@ -217,21 +222,13 @@ public class Player : LifeObject
 
     }
 
-    IEnumerator PlayerAttack()
+    void PlayerAttack()
     {
+        if (!canAttack) return;
         attacking = true;
         animator.SetTrigger("isAttack");
-
-        yield return new WaitForSeconds(0.6f);
-        attacking = false;
+        Debug.Log("플레이어 어택");
     }
-
-    void PlayerAttackEffect()
-    {
-        effect.damage = attackDamage;
-        effect.animator.SetTrigger("isAttack");
-    }
-
 
     //플레이어 스프라이트 전환
     void Flip()
@@ -250,4 +247,20 @@ public class Player : LifeObject
 
         Destroy(this.gameObject);
     }
+
+
+    //애니메이션 이벤트 함수들
+
+    void PlayerAttackOff()
+    {
+        attacking = false;
+        canAttack = false;
+    }
+
+    public void PlayerAttackEffect()
+    {
+        effect.damage = attackDamage;
+        effect.animator.SetTrigger("isAttack");
+    }
+
 }

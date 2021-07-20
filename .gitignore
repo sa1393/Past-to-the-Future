@@ -4,3 +4,5 @@
 !/.gitignore
 !/Assets
 !/ProjectSettings
+!/Library
+!/Packages

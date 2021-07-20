@@ -63,7 +63,7 @@ public abstract class Enemy : LifeObject
 
     protected void Start()
     {
-        player = GameObject.Find("Player").GetComponent<Player>();
+        player = GameObject.Find("player").GetComponent<Player>();
     }
 
     public virtual void SlimeAttackMove()
