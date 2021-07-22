@@ -8,13 +8,20 @@ public class PlayerAttackEffect : MonoBehaviour
     public int damage = 0;
     public Animator animator;
 
-    void EffectToggle()
-    {
-        Destroy(gameObject.GetComponent<PolygonCollider2D>());
+    
+    public PolygonCollider2D[] colliders;
+    private int currentColliderIndex = 0;
 
-        PolygonCollider2D col = gameObject.AddComponent<PolygonCollider2D>();
-        
-        
+    void EffectSetColider(int spriteNum)
+    {
+        colliders[currentColliderIndex].enabled = false;
+        currentColliderIndex = spriteNum;
+        colliders[currentColliderIndex].enabled = true;
+        colliders[currentColliderIndex].isTrigger = true;
+        if (currentColliderIndex == 10)
+        {
+            colliders[currentColliderIndex].enabled = false;
+        }
     }
 
     private void Awake()

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Player : LifeObject
 {
+
+    private Cinemachine.CinemachineCollisionImpulseSource MyInpulse;
+
     float moveSpeed = 1000f;
     float currentMoveSpeed = 1000f;
 
@@ -13,6 +16,9 @@ public class Player : LifeObject
     public float timeFastNumber = 1.5f;
 
     bool canAttack = true;
+    bool canHit = true;
+
+    bool hitting = false;
 
     float currentAttackDelay = 0;
     float attackDelay = 0.5f;
@@ -45,6 +51,10 @@ public class Player : LifeObject
         rigid = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<PolygonCollider2D>();
         animator = GetComponent<Animator>();
+
+       
+        MyInpulse = GameObject.Find("CM vcam1").GetComponent<Cinemachine.CinemachineCollisionImpulseSource>();
+        if (MyInpulse != null) Debug.Log("찾음");
     }
 
     private void Start()
@@ -70,12 +80,12 @@ public class Player : LifeObject
             }
         }
 
-        if (Input.GetButton("Jump") && !isJump)
+        if (Input.GetButton("Jump") && !isJump && !attacking)
         {
             Jump();
         }
         //공격
-        if (Input.GetMouseButton(0) && canAttack && !attacking)
+        if (Input.GetMouseButton(0) && canAttack && !attacking && !hitting)
         {
             PlayerAttack();
         }
@@ -111,10 +121,9 @@ public class Player : LifeObject
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Enemy enemy = collision.gameObject.transform.parent.GetChild(0).GetComponent<Enemy>();
-        if (collision.gameObject.tag == "EnemyAttack")
+        if (collision.gameObject.tag == "EnemyAttack" && !attacking)
         {
-
+            Enemy enemy = collision.gameObject.transform.parent.GetChild(0).GetComponent<Enemy>();
             OnDamaged(enemy.attackDamage);
         }
     }
@@ -209,6 +218,7 @@ public class Player : LifeObject
     //플레이어 피격 이벤트
     void OnDamaged(int damage)
     {
+        MyInpulse.GenerateImpulse(new Vector3(100f, 100f));
         hp -= damage;
         if (hp <= 0)
         {
@@ -227,7 +237,6 @@ public class Player : LifeObject
         if (!canAttack) return;
         attacking = true;
         animator.SetTrigger("isAttack");
-        Debug.Log("플레이어 어택");
     }
 
     //플레이어 스프라이트 전환
@@ -261,6 +270,17 @@ public class Player : LifeObject
     {
         effect.damage = attackDamage;
         effect.animator.SetTrigger("isAttack");
+    }
+
+
+    void PlayerHitOn()
+    {
+        hitting = true;
+    }
+
+    void PlayerhitOff()
+    {
+        hitting = false;
     }
 
 }

@@ -46,10 +46,10 @@ public class Slime : Enemy
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag == "PlayerAttack")
         {
-
+            Debug.Log("체크");
             PlayerAttackInfo tempPlayer = collision.gameObject.GetComponent<PlayerAttackInfo>();
             PlayerAttackEffect effect = collision.gameObject.GetComponent<PlayerAttackEffect>();
 
@@ -58,20 +58,30 @@ public class Slime : Enemy
                 Hit(tempPlayer.attackDamage);
                 canHit = false;
             }
-            else
+            else if(effect != null)
             {
                 Hit(effect.damage);
                 canHit = false;
             }
+            else
+            {
+               
+            }
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("col충돌");
     }
 
     private void SlimeMove()
     {
         if(!attacking && !hitting)
         {
-            bool right = false;
-            right = player.transform.position.x > transform.position.x ? true : false;
+            bool right = false; 
+            if(player != null)
+                right = player.transform.position.x > transform.position.x ? true : false;
 
             if (right != isRight)
                 Flip();
@@ -112,6 +122,12 @@ public class Slime : Enemy
         }
     }
 
+    public virtual void SlimeAttackMove()
+    {
+        enemyRigid.AddForce(new Vector2((isRight ? 1 : -1) * standardNumber * 60f, 0));
+        enemyCollider.isTrigger = true;
+    }
+
     private void SlimeBite()
     {
         animator.SetTrigger("isAttack2");
@@ -121,6 +137,7 @@ public class Slime : Enemy
     {
         effect.tag = "EnemyAttack";
         effect.layer = 9;
+        
         effectAnimator.SetTrigger("isEffect1");
     }
     private void BiteAttackOff()

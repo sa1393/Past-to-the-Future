@@ -8,7 +8,8 @@ public abstract class Enemy : LifeObject
     const string animBaseLayer = "Base Layer";
 
     private GameObject target;
-    private PolygonCollider2D enemyCollider;
+    public Collider2D enemyCollider;
+    private Collider2D enemyFloor;
     public Player player;
     protected GameObject effect;
     protected Rigidbody2D enemyRigid;
@@ -51,6 +52,7 @@ public abstract class Enemy : LifeObject
         enemyRigid = transform.parent.GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         enemyCollider = GetComponent<PolygonCollider2D>();
+        enemyFloor = GetComponent<BoxCollider2D>();
         sr = GetComponent<SpriteRenderer>();
 
 
@@ -64,12 +66,20 @@ public abstract class Enemy : LifeObject
     protected void Start()
     {
         player = GameObject.Find("player").GetComponent<Player>();
+
+        PolygonCollider2D[] colliders = player.transform.GetChild(0).GetComponent<PlayerAttackEffect>().colliders;
+        Debug.Log(colliders[0]);
+        if(enemyFloor != null)
+        {
+            Debug.Log("hihi");
+        }
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            Physics2D.IgnoreCollision(enemyFloor, colliders[i]);
+        }
     }
 
-    public virtual void SlimeAttackMove()
-    {
-        enemyRigid.AddForce(new Vector2((isRight ? 1 : -1) * standardNumber * 30f, 0));
-    }
+
 
     protected void Update()
     {
@@ -103,18 +113,18 @@ public abstract class Enemy : LifeObject
     {
         animator.SetTrigger("isAttack");
         gameObject.tag = "EnemyAttack";
-        enemyRigid.gravityScale = 0;
         enemyCollider.isTrigger = true;
         gameObject.layer = 9;
+        enemyRigid.gravityScale = 0;
 
     }
 
     protected virtual void OffAttack()
     {
         gameObject.tag = "Enemy";
+        gameObject.layer = 7;
         enemyCollider.isTrigger = false;
         enemyRigid.gravityScale = 1;
-        gameObject.layer = 7;
     }
     //공격 시작
     IEnumerator StartBaseAttack(float time)
