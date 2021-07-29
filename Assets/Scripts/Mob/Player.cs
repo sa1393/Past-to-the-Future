@@ -250,7 +250,6 @@ public class Player : LifeObject
         }else
         {
             animator.SetTrigger("isHit");
-
         }
     }
 

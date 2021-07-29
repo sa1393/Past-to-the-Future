@@ -114,7 +114,6 @@ public abstract class Enemy : LifeObject
         enemyCollider.isTrigger = true;
         gameObject.layer = 9;
         enemyRigid.gravityScale = 0;
-
     }
 
     protected virtual void OffAttack()
