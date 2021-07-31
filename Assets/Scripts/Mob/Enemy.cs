@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public abstract class Enemy : LifeObject
+public abstract class Enemy : MonoBehaviour, AttackObjectInterface
 {
+    public int standardNumber = 1000;
     const string animBaseLayer = "Base Layer";
 
     private GameObject target;
@@ -25,8 +26,6 @@ public abstract class Enemy : LifeObject
     protected bool isRight = false;
 
     public int hp;
-    //공격력
-    public int attackDamage;
     //사거리
     public int range;
     //이동속도
@@ -46,6 +45,11 @@ public abstract class Enemy : LifeObject
 
     public bool attacking = false;
     public bool hitting = false;
+
+
+    //곻격력
+    public int damage = 0;
+    public int Damage { get => Damage; set => Damage = value; }
 
     protected void Awake()
     {
@@ -122,32 +126,6 @@ public abstract class Enemy : LifeObject
         gameObject.layer = 7;
         enemyCollider.isTrigger = false;
         enemyRigid.gravityScale = 1;
-    }
-    //공격 시작
-    IEnumerator StartBaseAttack(float time)
-    {
-        if (canAttack && !hitting && !attacking)
-        {
-            float exitTime = 0.8f;
-            attacking = true;
-            yield return new WaitForSeconds(time);
-            Attack();
-
-            while (!animator.GetCurrentAnimatorStateInfo(0).IsName("slime_attack"))
-            {
-                //전환 중일 때 실행되는 부분
-                yield return null;
-            }
-
-            while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < exitTime)
-            {
-                //애니메이션 재생 중 실행되는 부분
-                yield return null;
-            }   
-
-            canAttack = false;
-            attacking = false;
-        }
     }
 
     public void TimeStop()

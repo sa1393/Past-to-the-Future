@@ -484,6 +484,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8606412234412202082, guid: e553fe0d0338acf459449618f259ec26,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8606412234412202082, guid: e553fe0d0338acf459449618f259ec26,
+        type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
@@ -5716,7 +5721,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c3a29ffd84a7ba47979e6cba0dbbafd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standardNumber: 1000
   timeFast: 0
   timeFastNumber: 1.5
   maxHp: 0
@@ -7397,7 +7401,6 @@ MonoBehaviour:
   player: {fileID: 0}
   timeSlowNumber: 0.2
   hp: 0
-  attackDamage: 0
   range: 0
   moveSpeed: 1
   moveCurrentSpeed: 1
@@ -7411,7 +7414,8 @@ MonoBehaviour:
   currentAttackDelay: 0
   attacking: 0
   hitting: 0
-  bullet: {fileID: 1683561775438741596, guid: 3a7a152421700bb4396e0709a697ea86, type: 3}
+  damage: 0
+  bullet: {fileID: 8336325079127808530, guid: e49525bf46da1324ea72c62c415386c3, type: 3}
   attackPosition: {fileID: 1833771942}
 --- !u!1 &2031435800
 GameObject:

@@ -15,8 +15,9 @@ public class Slime : Enemy
     }
     private void Update()
     {
-        base.Update();
         if (GameManager.Instance.timeStop) return;
+
+        base.Update();
 
     }
 
@@ -39,7 +40,7 @@ public class Slime : Enemy
         hp = 4;
         moveSpeed = 0.4f;
         moveCurrentSpeed = moveSpeed;
-        attackDamage = 10;
+        Damage = 10;
         attackSpeed = 4f;
     }
 
@@ -76,8 +77,31 @@ public class Slime : Enemy
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    //공격 시작
+    IEnumerator StartBaseAttack(float time)
     {
+        if (canAttack && !hitting && !attacking)
+        {
+            float exitTime = 0.8f;
+            attacking = true;
+            yield return new WaitForSeconds(time);
+            Attack();
+
+            while (!animator.GetCurrentAnimatorStateInfo(0).IsName("slime_attack"))
+            {
+                //전환 중일 때 실행되는 부분
+                yield return null;
+            }
+
+            while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < exitTime)
+            {
+                //애니메이션 재생 중 실행되는 부분
+                yield return null;
+            }
+
+            canAttack = false;
+            attacking = false;
+        }
     }
 
     private void SlimeMove()

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet1 : Enemy
+public class Bullet1 : MonoBehaviour, AttackObjectInterface
 {
     private float speed = 400f;
     private bool isHit = false;
@@ -10,13 +10,15 @@ public class Bullet1 : Enemy
     private Rigidbody2D rigid;
     private Animator animator;
 
+    public int damage = 0;
+    public int Damage { get => damage; set => damage = value; }
+
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -28,13 +30,8 @@ public class Bullet1 : Enemy
             rigid.velocity = new Vector2(vec.normalized.x * speed, vec.normalized.y * speed);
         }
 
-        Init();
-    }
+        StartCoroutine(SelfDie());
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -46,19 +43,8 @@ public class Bullet1 : Enemy
         }
     }
 
-    protected override void Init()
-    {
-        attackDamage = 10;
 
-        StartCoroutine(SelfDie());
-    }
-
-    protected override void Hit(int damage)
-    {
-        
-    }
-
-    protected override IEnumerator Die(float second)
+    IEnumerator Die(float second)
     {
         gameObject.transform.localScale *= 1.4f;
         animator.SetTrigger("destroy");

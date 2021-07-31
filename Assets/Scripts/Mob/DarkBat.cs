@@ -68,6 +68,7 @@ public class DarkBat : Enemy
     IEnumerator CreateBullet()
     {
         Instantiate(bullet);
+        
         bullet.transform.position = attackPosition.transform.position;
 
         yield return new WaitForSeconds(attackSpeed);

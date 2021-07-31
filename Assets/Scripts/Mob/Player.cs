@@ -8,8 +8,7 @@ public enum CurrentSkill
     timeFast = 2
 }
 
-
-public class Player : LifeObject
+public class Player : MonoBehaviour
 {
     private Cinemachine.CinemachineCollisionImpulseSource MyInpulse;
 
@@ -26,14 +25,18 @@ public class Player : LifeObject
 
 
     //데미지로 쿨타임 계산
-    private int timeStopCool = 4;
-    private int currentTimeStopCool = 4;
+    private int timeCool = 4;
+    private int currentTimeCool = 4;
 
-    private int timeSlowCool = 4;
-    private int currentTimeSlowCool = 4;
 
-    private int timeFastCool = 4;
-    private int currentTimeFastCool = 4;
+    //private int timeStopCool = 4;
+    //private int currentTimeStopCool = 4;
+
+    //private int timeSlowCool = 4;
+    //private int currentTimeSlowCool = 4;
+
+    //private int timeFastCool = 4;
+    //private int currentTimeFastCool = 4;
 
     public bool timeFast = false;
     public float timeFastNumber = 1.5f;
@@ -103,9 +106,26 @@ public class Player : LifeObject
         }
 
         //공격
-        if (Input.GetMouseButton(0) && canAttack && !attacking && !hitting)
+        if (canAttack && !attacking && !hitting)
         {
-            PlayerAttack();
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                PlayerAttack();
+            }
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                PlayerAttack();
+            }
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                PlayerAttack();
+
+            }
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                PlayerAttack();
+            }
+
         }
 
         //능력 교체
@@ -120,29 +140,29 @@ public class Player : LifeObject
             switch (currentSkill)
             {
                 case CurrentSkill.timeStop:
-                    if(currentTimeStopCool == timeStopCool)
+                    if(currentTimeCool == timeCool)
                     {
-                        currentTimeStopCool = 0;
+                        currentTimeCool = 0;
                         StartCoroutine(TimeStop());
-                        UIManager.Instance.SetPlayerSkillImage(timeStopCool, currentTimeStopCool);
+                        UIManager.Instance.SetPlayerSkillImage(timeCool, currentTimeCool);
                     }
                     break;
 
                 case CurrentSkill.timeSlow:
-                    if (currentTimeSlowCool == timeSlowCool)
+                    if (currentTimeCool == timeCool)
                     {
-                        currentTimeSlowCool = 0;
+                        currentTimeCool = 0;
                         StartCoroutine(TimeSlow());
-                        UIManager.Instance.SetPlayerSkillImage(timeSlowCool, currentTimeSlowCool);
+                        UIManager.Instance.SetPlayerSkillImage(timeCool, currentTimeCool);
                     }
                     break;
 
                 case CurrentSkill.timeFast:
-                    if (currentTimeFastCool == timeFastCool)
+                    if (currentTimeCool == timeCool)
                     {
-                        currentTimeFastCool = 0;
+                        currentTimeCool = 0;
                         StartCoroutine(TimeFast());
-                        UIManager.Instance.SetPlayerSkillImage(timeFastCool, currentTimeFastCool);
+                        UIManager.Instance.SetPlayerSkillImage(timeCool, currentTimeCool);
                     }
                     break;
 
@@ -173,8 +193,24 @@ public class Player : LifeObject
     {
         if (collision.gameObject.tag == "EnemyAttack" && !attacking)
         {
-            Enemy enemy = collision.gameObject.transform.parent.GetChild(0).GetComponent<Enemy>();
-            OnDamaged(enemy.attackDamage);
+            AttackObjectInterface ao = collision.gameObject.GetComponent<AttackObjectInterface>();
+            if(ao != null)
+            {
+                OnDamaged(ao.Damage);
+            }
+            else
+            {
+                AttackObjectInterface ao2 = collision.gameObject.transform.GetChild(0).GetComponent<AttackObjectInterface>();
+                if(ao2 != null)
+                {
+                    OnDamaged(ao2.Damage);
+                }
+                else
+                {
+                    Debug.Log("진짜 없음");
+                }
+            }
+
         }
     }
 
@@ -266,15 +302,15 @@ public class Player : LifeObject
         switch (currentSkill)
         {
             case CurrentSkill.timeStop:
-                UIManager.Instance.SetPlayerSkillImage(timeStopCool, currentTimeStopCool);
+                UIManager.Instance.SetPlayerSkillImage(timeCool, currentTimeCool);
                 break;
 
             case CurrentSkill.timeSlow:
-                UIManager.Instance.SetPlayerSkillImage(timeSlowCool, currentTimeSlowCool);
+                UIManager.Instance.SetPlayerSkillImage(timeCool, currentTimeCool);
                 break;
 
             case CurrentSkill.timeFast:
-                UIManager.Instance.SetPlayerSkillImage(timeFastCool, currentTimeFastCool);
+                UIManager.Instance.SetPlayerSkillImage(timeCool, currentTimeCool);
                 break;
 
         }
@@ -288,22 +324,22 @@ public class Player : LifeObject
         switch (currentSkill)
         {
             case CurrentSkill.timeStop:
-                currentTimeStopCool++;
-                if (currentTimeStopCool > timeStopCool)
-                    currentTimeStopCool = timeStopCool;
+                currentTimeCool++;
+                if (currentTimeCool > timeCool)
+                    currentTimeCool = timeCool;
 
                 break;
 
             case CurrentSkill.timeSlow:
-                currentTimeSlowCool++;
-                if (currentTimeSlowCool > timeSlowCool)
-                    currentTimeSlowCool = timeSlowCool;
+                currentTimeCool++;
+                if (currentTimeCool > timeCool)
+                    currentTimeCool = timeCool;
                 break;
 
             case CurrentSkill.timeFast:
-                currentTimeFastCool++;
-                if (currentTimeFastCool > timeFastCool)
-                    currentTimeFastCool = timeFastCool;
+                currentTimeCool++;
+                if (currentTimeCool > timeCool)
+                    currentTimeCool = timeCool;
                 break;
 
         }
