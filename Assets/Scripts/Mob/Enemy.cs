@@ -8,30 +8,28 @@ public abstract class Enemy : MonoBehaviour, AttackObjectInterface
     public int standardNumber = 1000;
     const string animBaseLayer = "Base Layer";
 
-    private GameObject target;
     public Collider2D enemyCollider;
     private Collider2D enemyFloor;
     public Player player;
-    protected GameObject effect;
+    
     protected Rigidbody2D enemyRigid;
     protected Animator animator;
-    protected Animator effectAnimator;
 
-    //ÀÓ½Ã
+    //ï¿½Ó½ï¿½
     protected SpriteRenderer sr;
 
     public float timeSlowNumber = 0.2f;
 
-    //ÇöÀç ÀÚ½ÅÀÌ ¿À¸¥ÂÊÀ» ¹Ù¶óº¸°í ÀÖ´Â°¡?
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¶óº¸°ï¿½ ï¿½Ö´Â°ï¿½?
     protected bool isRight = false;
 
     public int hp;
-    //»ç°Å¸®
+    //ï¿½ï¿½Å¸ï¿½
     public int range;
-    //ÀÌµ¿¼Óµµ
+    //ï¿½Ìµï¿½ï¿½Óµï¿½
     public float moveSpeed = 1;
     public float moveCurrentSpeed = 1;
-    //°ø°Ý¼Óµµ
+    //ï¿½ï¿½ï¿½Ý¼Óµï¿½
     public float attackSpeed;
     public bool isDead = false;
 
@@ -47,38 +45,38 @@ public abstract class Enemy : MonoBehaviour, AttackObjectInterface
     public bool hitting = false;
 
 
-    //ï°Ý·Â
+    //ï¿½ï¿½Ý·ï¿½
     public int damage = 0;
     public int Damage { get => Damage; set => Damage = value; }
 
     protected void Awake()
     {
-        enemyRigid = transform.parent.GetComponent<Rigidbody2D>();
+        enemyRigid = transform.GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         enemyCollider = GetComponent<PolygonCollider2D>();
-        enemyFloor = GetComponent<BoxCollider2D>();
+
+        if(GetComponent<BoxCollider2D>() != null) {
+            enemyFloor = GetComponent<BoxCollider2D>();
+        }
         sr = GetComponent<SpriteRenderer>();
 
-
-        effect = transform.parent.GetChild(2).gameObject;
-        effectAnimator = effect.GetComponent<Animator>();
-
         GameManager.Instance.enemies.Add(this);
-        
     }
 
     protected void Start()
     {
         player = GameObject.Find("player").GetComponent<Player>();
 
-        PolygonCollider2D[] colliders = player.transform.GetChild(0).GetComponent<PlayerAttackEffect>().colliders;
         if(enemyFloor != null)
         {
-        }
-        for (int i = 0; i < colliders.Length; i++)
+            PolygonCollider2D[] colliders = player.transform.GetChild(0).GetComponent<PlayerAttackEffect>().colliders;
+
+            for (int i = 0; i < colliders.Length; i++)
         {
             Physics2D.IgnoreCollision(enemyFloor, colliders[i]);
         }
+        }
+        
     }
 
 
@@ -93,15 +91,18 @@ public abstract class Enemy : MonoBehaviour, AttackObjectInterface
             {
                 currentHitDelay = 0;
                 canHit = true;
-                //ÀÓ½Ã
-                sr.color = new Color(1, 1, 1, 1f);
             }
         }
         if (GameManager.Instance.timeStop) return;
 
         if (!canAttack)
         {
-            currentAttackDelay += Time.deltaTime;
+            if(GameManager.Instance.timeSlow){
+                currentAttackDelay += Time.deltaTime / 2;
+            }
+            else {
+                currentAttackDelay += Time.deltaTime;
+            }
 
             if (currentAttackDelay >= attackDelay)
             {
@@ -133,19 +134,19 @@ public abstract class Enemy : MonoBehaviour, AttackObjectInterface
         if (GameManager.Instance.timeStop)
         {
             animator.speed = 0;
-            effectAnimator.speed = 0;
+            // effectAnimator.speed = 0;
         }
         else
         {
             if (GameManager.Instance.timeSlow)
             {
                 animator.speed = timeSlowNumber;
-                effectAnimator.speed = timeSlowNumber;
+                // effectAnimator.speed = timeSlowNumber;
             }
             else
             {
                 animator.speed = 1;
-                effectAnimator.speed = 1;
+                // effectAnimator.speed = 1;
             }
 
 
@@ -170,14 +171,14 @@ public abstract class Enemy : MonoBehaviour, AttackObjectInterface
             if (GameManager.Instance.timeSlow)
             {
                 animator.speed = timeSlowNumber;
-                effectAnimator.speed = timeSlowNumber;
+                // effectAnimator.speed = timeSlowNumber;
                 moveCurrentSpeed = moveCurrentSpeed * timeSlowNumber;
                 Debug.Log("test");
             }
             else
             {
                 animator.speed = 1;
-                effectAnimator.speed = 1;
+                // effectAnimator.speed = 1;
                 moveCurrentSpeed = moveCurrentSpeed / timeSlowNumber;
             }
         }

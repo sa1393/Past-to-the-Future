@@ -10,6 +10,9 @@ public class Bullet1 : MonoBehaviour, AttackObjectInterface
     private Rigidbody2D rigid;
     private Animator animator;
 
+    GameObject player;
+    Vector2 vec;
+
     public int damage = 0;
     public int Damage { get => damage; set => damage = value; }
 
@@ -19,11 +22,30 @@ public class Bullet1 : MonoBehaviour, AttackObjectInterface
         animator = GetComponent<Animator>();
     }
 
+    void Update(){
+        if(GameManager.Instance.timeStop){
+            rigid.velocity = new Vector2(0, 0);
+            return;
+        }
+        else {
+            rigid.velocity = new Vector2(vec.normalized.x * speed, vec.normalized.y * speed);
+        }
+
+        if(GameManager.Instance.timeSlow){
+            rigid.velocity = new Vector2(vec.normalized.x * speed / 2, vec.normalized.y * speed / 2);
+        }
+        else {
+            rigid.velocity = new Vector2(vec.normalized.x * speed, vec.normalized.y * speed);
+        }
+
+    }
+
+
     void Start()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
 
-        Vector2 vec = player.transform.position - gameObject.transform.position;
+        vec = player.transform.position - gameObject.transform.position;
 
         if(!isHit)
         {

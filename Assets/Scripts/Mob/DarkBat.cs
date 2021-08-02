@@ -7,30 +7,37 @@ public class DarkBat : Enemy
     public GameObject bullet;
     public Transform attackPosition;
 
-    private Rigidbody2D rigid;
-    private Animator animator;
-
     private float axis_X;
     private float axis_Y;
     private float origin_Y;
     private float movingDelay = 0.3f;
+    private float currentMovingDelay = 0.3f;
     private bool movingChainge = true;
 
     private void Awake()
     {
-        rigid = GetComponent<Rigidbody2D>();
+        base.Awake();
+
+        enemyRigid = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        base.Start();
+
         Init();
     }
 
     // Update is called once per frame
     void Update()
     {
+        base.Update();
+        if(GameManager.Instance.timeStop){
+            enemyRigid.velocity = new Vector2(0, 0);
+        }
+
         if(canAttack)
         {
             canAttack = false;
@@ -40,7 +47,10 @@ public class DarkBat : Enemy
         {
             movingChainge = false;
             StartCoroutine(RandomMoving());
-            rigid.velocity = new Vector2(axis_X * moveSpeed, axis_Y * moveSpeed);
+            if (!GameManager.Instance.timeStop) {
+                enemyRigid.velocity = new Vector2(axis_X * moveCurrentSpeed, axis_Y * moveCurrentSpeed);
+
+            }
         }
     }
 
@@ -70,24 +80,20 @@ public class DarkBat : Enemy
         Instantiate(bullet);
         
         bullet.transform.position = attackPosition.transform.position;
+        bullet.GetComponent<Bullet1>().damage = 10;
 
-        yield return new WaitForSeconds(attackSpeed);
+        yield return null;
 
-        canAttack = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "PlayerAttack")
         {
-
             if (!canHit) return;
             Player player = collision.gameObject.transform.parent.GetComponent<Player>();
             PlayerAttackInfo tempPlayer = collision.gameObject.GetComponent<PlayerAttackInfo>();
             PlayerAttackEffect effect = collision.gameObject.GetComponent<PlayerAttackEffect>();
-
-            Debug.Log("¸ÂÀ½");
-
 
             if (tempPlayer != null)
             {
@@ -113,7 +119,7 @@ public class DarkBat : Enemy
         hp = 3;
         moveSpeed = 100f;
         moveCurrentSpeed = moveSpeed;
-        attackSpeed = 2.5f;
+        attackDelay = 2.5f;
         origin_Y = gameObject.transform.position.y;
     }
 
@@ -127,7 +133,7 @@ public class DarkBat : Enemy
         }
         else
         {
-            sr.color = new Color(1, 1, 1, 0.4f);
+            // sr.color = new Color(1, 1, 1, 0.4f);
         }
     }
 

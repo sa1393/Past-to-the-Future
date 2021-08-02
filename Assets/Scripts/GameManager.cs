@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public bool timeStop = true;
     public bool timeSlow = false;
 
-    //»ý¼ºµÈ ¸ðµç Àû ³Ö¾î¾ß µÊ
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ ï¿½ï¿½
     public ArrayList enemies = new ArrayList();
 
     private static GameManager instance = null;

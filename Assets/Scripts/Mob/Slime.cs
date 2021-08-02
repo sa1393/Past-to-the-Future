@@ -5,6 +5,10 @@ using UnityEngine;
 public class Slime : Enemy
 {
     CapsuleCollider2D rangeCollider;
+    protected Animator effectAnimator;
+
+    protected GameObject effect;
+    private GameObject target;
 
     private void Awake()
     {
@@ -12,6 +16,8 @@ public class Slime : Enemy
 
         Init();
         rangeCollider = GetComponent<CapsuleCollider2D>();
+        effect = transform.parent.GetChild(2).gameObject;
+        effectAnimator = effect.GetComponent<Animator>();
     }
     private void Update()
     {
@@ -55,7 +61,7 @@ public class Slime : Enemy
             PlayerAttackInfo tempPlayer = collision.gameObject.GetComponent<PlayerAttackInfo>();
             PlayerAttackEffect effect = collision.gameObject.GetComponent<PlayerAttackEffect>();
 
-            Debug.Log("¸ÂÀ½");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½");
 
 
             if (tempPlayer != null)
@@ -77,7 +83,7 @@ public class Slime : Enemy
         }
     }
 
-    //°ø°Ý ½ÃÀÛ
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     IEnumerator StartBaseAttack(float time)
     {
         if (canAttack && !hitting && !attacking)
@@ -89,13 +95,13 @@ public class Slime : Enemy
 
             while (!animator.GetCurrentAnimatorStateInfo(0).IsName("slime_attack"))
             {
-                //ÀüÈ¯ ÁßÀÏ ¶§ ½ÇÇàµÇ´Â ºÎºÐ
+                //ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½Îºï¿½
                 yield return null;
             }
 
             while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < exitTime)
             {
-                //¾Ö´Ï¸ÞÀÌ¼Ç Àç»ý Áß ½ÇÇàµÇ´Â ºÎºÐ
+                //ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½Îºï¿½
                 yield return null;
             }
 
@@ -126,7 +132,7 @@ public class Slime : Enemy
         }
     }
 
-    //°ø°Ý ½ÃÀÛ
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     IEnumerator SlimeBiteAttack(float time)
     {
         if (!hitting && !attacking)
@@ -138,7 +144,7 @@ public class Slime : Enemy
 
             while (!animator.GetCurrentAnimatorStateInfo(0).IsName("slime_attack2"))
             {
-                //ÀüÈ¯ ÁßÀÏ ¶§ ½ÇÇàµÇ´Â ºÎºÐ
+                //ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½Îºï¿½
                 yield return null;
             }
 

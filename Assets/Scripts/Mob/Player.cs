@@ -14,8 +14,10 @@ public class Player : MonoBehaviour
 
     float moveSpeed = 1000f;
     float currentMoveSpeed = 1000f;
-    float jumpForce = 2000f;
 
+
+    float jumpForce = 2000f;
+    float fastJumpForce = 3000f;
 
     bool canAttack = true;
     bool canHit = true;
@@ -24,7 +26,7 @@ public class Player : MonoBehaviour
     private bool attacking = false;
 
 
-    //µ¥¹ÌÁö·Î ÄðÅ¸ÀÓ °è»ê
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½
     private int timeCool = 4;
     private int currentTimeCool = 4;
 
@@ -41,11 +43,11 @@ public class Player : MonoBehaviour
     public bool timeFast = false;
     public float timeFastNumber = 1.5f;
 
-    //´É·ÂÄ¡
-    //Ã¼·Â
+    //ï¿½É·ï¿½Ä¡
+    //Ã¼ï¿½ï¿½
     public int maxHp;
     public int hp;
-    //°ø°Ý·Â
+    //ï¿½ï¿½ï¿½Ý·ï¿½
     public int attackDamage;
 
 
@@ -60,11 +62,11 @@ public class Player : MonoBehaviour
 
     CurrentSkill currentSkill;
 
-    //Á¡ÇÁÁß
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private bool isJump = false;
-    //ÇöÀç ÇÃ·¹ÀÌ¾î°¡ ¿À¸¥ÂÊÀ» ¹Ù¶óº¸°í ÀÖ´Â°¡?
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾î°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¶óº¸°ï¿½ ï¿½Ö´Â°ï¿½?
     private bool isRight = true;
-    //ÇÃ·¹ÀÌ¾î°¡ ÇöÀç ¶¥À» ¹â°í ÀÖ´Â°¡?
+    //ï¿½Ã·ï¿½ï¿½Ì¾î°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ö´Â°ï¿½?
     private bool isGround = true;
 
     private void Awake()
@@ -105,7 +107,7 @@ public class Player : MonoBehaviour
             Jump();
         }
 
-        //°ø°Ý
+        //ï¿½ï¿½ï¿½ï¿½
         if (canAttack && !attacking && !hitting)
         {
             if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -128,13 +130,13 @@ public class Player : MonoBehaviour
 
         }
 
-        //´É·Â ±³Ã¼
+        //ï¿½É·ï¿½ ï¿½ï¿½Ã¼
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             ChangeSkill();
         }
 
-        //´É·Â »ç¿ë
+        //ï¿½É·ï¿½ ï¿½ï¿½ï¿½
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             switch (currentSkill)
@@ -180,7 +182,7 @@ public class Player : MonoBehaviour
             {
                 currentAttackDelay = 0;
                 canAttack = true;
-                UIManager.Instance.attackDelayText.text = "°ø°Ý°¡´É";
+                UIManager.Instance.attackDelayText.text = "ï¿½ï¿½ï¿½Ý°ï¿½ï¿½ï¿½";
             }
         }
 
@@ -207,7 +209,7 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("ÁøÂ¥ ¾øÀ½");
+                    Debug.Log("ï¿½ï¿½Â¥ ï¿½ï¿½ï¿½ï¿½");
                 }
             }
 
@@ -216,7 +218,7 @@ public class Player : MonoBehaviour
 
 
 
-    //¶¥ Ã¼Å©
+    //ï¿½ï¿½ Ã¼Å©
     void GroundCheck()
     {
         Debug.DrawRay(rigid.position, Vector3.down * 110f, new Color(0, 1, 0));
@@ -235,7 +237,7 @@ public class Player : MonoBehaviour
 
 
 
-    //ÇÃ·¹ÀÌ¾î ÀÌµ¿
+    //ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½Ìµï¿½
     void PlayerMove()
     {
         float axis_X = Input.GetAxisRaw("Horizontal");
@@ -256,22 +258,22 @@ public class Player : MonoBehaviour
 
         }
 
-        //¾Ö´Ï¸ÞÀÌ¼Ç ÆÄ¶ó¹ÌÅÍ ¼³Á¤
+        //ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         animator.SetFloat("axis_X", Mathf.Abs(axis_X));
     }
 
-    //ÇÃ·¹ÀÌ¾î Á¡ÇÁ
+    //ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½
     void Jump()
     {
         isJump = true;
         rigid.velocity = Vector2.zero;
         rigid.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
-        //¾Ö´Ï¸ÞÀÌ¼Ç ÆÄ¶ó¹ÌÅÍ ¼³Á¤
+        //ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         animator.SetTrigger("isJump");
     }
 
-    //ÇÃ·¹ÀÌ¾î ÇÇ°Ý ÀÌº¥Æ®
+    //ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½Ç°ï¿½ ï¿½Ìºï¿½Æ®
     void OnDamaged(int damage)
     {
         MyInpulse.GenerateImpulse(new Vector3(100f, 100f));
@@ -296,7 +298,7 @@ public class Player : MonoBehaviour
         animator.SetTrigger("isAttack");
     }
 
-    //---ÇÃ·¹ÀÌ¾î ½ºÅ³
+    //---ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½Å³
     private void SetSkillImage()
     {
         switch (currentSkill)
@@ -318,7 +320,7 @@ public class Player : MonoBehaviour
     }
 
 
-    //ÀûÀ» ¶§·ÈÀ»¶§ ½ºÅ³ Äð °ü·Ã
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public void SkillCoolDown()
     {
         switch (currentSkill)
@@ -383,14 +385,18 @@ public class Player : MonoBehaviour
     {
         currentMoveSpeed = currentMoveSpeed * timeFastNumber;
         animator.speed = animator.speed * timeFastNumber;
+        rigid.gravityScale = 2f;
+        jumpForce = 3000f;
 
         yield return new WaitForSeconds(5f);
 
         currentMoveSpeed = currentMoveSpeed / timeFastNumber;
         animator.speed = animator.speed / timeFastNumber;
+        rigid.gravityScale = 1f;
+        jumpForce = 2000f;
     }
 
-    //---ÇÃ·¹ÀÌ¾î ½ºÇÁ¶óÀÌÆ® ÀüÈ¯
+    //---ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È¯
     void Flip()
     {
         isRight = !isRight;
@@ -409,13 +415,13 @@ public class Player : MonoBehaviour
     }
 
 
-    //---¾Ö´Ï¸ÞÀÌ¼ÇÁß ÀÌº¥Æ® ÇÔ¼öµé
+    //---ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½Ô¼ï¿½ï¿½ï¿½
 
     void PlayerAttackOff()
     {
         attacking = false;
         canAttack = false;
-        UIManager.Instance.attackDelayText.text = "°ø°ÝºÒ°¡´É";
+        UIManager.Instance.attackDelayText.text = "ï¿½ï¿½ï¿½ÝºÒ°ï¿½ï¿½ï¿½";
     }
 
     public void PlayerAttackEffect()
