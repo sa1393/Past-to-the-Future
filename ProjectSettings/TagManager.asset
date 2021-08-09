@@ -10,6 +10,7 @@ TagManager:
   - PlayerAttack
   - EnemyAttack
   - EnemyRange
+  - Door
   layers:
   - Default
   - TransparentFX

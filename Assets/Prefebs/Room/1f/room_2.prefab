@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8910077874301584030}
   - component: {fileID: 1426269154860429722}
   - component: {fileID: 1532204849968388277}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor_1_4 (4)
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -313,9 +313,9 @@ GameObject:
   - component: {fileID: 8439101111598070082}
   - component: {fileID: 1823973333630670931}
   - component: {fileID: 6809351908406341087}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor_1_4 (12)
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -532,9 +532,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5695756202911012767}
   - component: {fileID: 5351467495414313623}
+  - component: {fileID: 6636207389766464897}
+  - component: {fileID: 1838224833999069771}
   m_Layer: 0
   m_Name: door
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -604,6 +606,46 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &6636207389766464897
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505419286335925599}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 515, y: 1741}
+    newSize: {x: 515, y: 1741}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 515, y: 1741}
+  m_EdgeRadius: 0
+--- !u!114 &1838224833999069771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505419286335925599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d93af7c7265fe4b4da47967cf4a87de2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dir: 1
+  map: {fileID: 0}
 --- !u!1 &851967694534265866
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,9 +877,9 @@ GameObject:
   - component: {fileID: 5433065685444065263}
   - component: {fileID: 5647847365984094388}
   - component: {fileID: 73291398563697507}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor_1_4 (16)
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1055,9 +1097,9 @@ GameObject:
   - component: {fileID: 3719850082981956229}
   - component: {fileID: 4755159760882419649}
   - component: {fileID: 148400549028972453}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor_1_4 (6)
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1165,9 +1207,9 @@ GameObject:
   - component: {fileID: 121558406853294782}
   - component: {fileID: 2541971313540317479}
   - component: {fileID: 7744085830546404563}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor_1_4 (9)
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1318,9 +1360,9 @@ GameObject:
   - component: {fileID: 6809223730952148754}
   - component: {fileID: 5226299477647429437}
   - component: {fileID: 7594131593476990155}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor_1_4 (15)
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1646,6 +1688,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9040330406406819481}
+  - component: {fileID: 3409378121983664350}
   m_Layer: 0
   m_Name: room_2
   m_TagString: Untagged
@@ -1671,6 +1714,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3409378121983664350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2623859129158321035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a81599acadf057e47a5345d26beed808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapLocX: 0
+  mapLocY: 0
 --- !u!1 &2643538889253752860
 GameObject:
   m_ObjectHideFlags: 0
@@ -1682,9 +1739,9 @@ GameObject:
   - component: {fileID: 7072349090588401536}
   - component: {fileID: 3532543168334470407}
   - component: {fileID: 5511087562969300704}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor_1_4 (11)
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1792,9 +1849,9 @@ GameObject:
   - component: {fileID: 2008859794903924270}
   - component: {fileID: 5859412327437530269}
   - component: {fileID: 4410121052730708669}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor_1_4 (5)
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1902,9 +1959,9 @@ GameObject:
   - component: {fileID: 8491279855839318970}
   - component: {fileID: 2359067802841002072}
   - component: {fileID: 4092663447063457112}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor_1_4 (13)
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2176,9 +2233,9 @@ GameObject:
   - component: {fileID: 1724616719241062682}
   - component: {fileID: 4753566716474889254}
   - component: {fileID: 5770592304897259713}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor_1_4 (8)
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3715,9 +3772,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3875954012617705223}
   - component: {fileID: 6815031026730287709}
+  - component: {fileID: 6054580613743166599}
+  - component: {fileID: 7023897013413461273}
   m_Layer: 0
   m_Name: door (1)
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3787,6 +3846,46 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &6054580613743166599
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7460145931015369138}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 515, y: 1741}
+    newSize: {x: 515, y: 1741}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 515, y: 1741}
+  m_EdgeRadius: 0
+--- !u!114 &7023897013413461273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7460145931015369138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d93af7c7265fe4b4da47967cf4a87de2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dir: 0
+  map: {fileID: 0}
 --- !u!1 &7762304546014570244
 GameObject:
   m_ObjectHideFlags: 0
@@ -3798,9 +3897,9 @@ GameObject:
   - component: {fileID: 8606463004290311323}
   - component: {fileID: 9056270794156015608}
   - component: {fileID: 7928767849075569215}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor_1_4 (14)
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4160,9 +4259,9 @@ GameObject:
   - component: {fileID: 4981191967130959325}
   - component: {fileID: 4838552439090540962}
   - component: {fileID: 9190330427516249773}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor_1_4 (7)
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4380,9 +4479,9 @@ GameObject:
   - component: {fileID: 3342267342341294915}
   - component: {fileID: 8261900770161725002}
   - component: {fileID: 2426035317898455905}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor_1_4 (10)
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

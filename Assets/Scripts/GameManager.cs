@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    Player player;
+    public int gameFloor = 1;
+
+    public Player player;
 
     public bool timeStop = true;
     public bool timeSlow = false;
 
     //������ ��� �� �־�� ��
-    public ArrayList enemies = new ArrayList();
+    public ArrayList enemies;
 
     private static GameManager instance = null;
 
     void Awake()
     {
+        enemies = new ArrayList();
         Screen.SetResolution(Screen.width, Screen.width * 1920 / 1080, true);
 
         if (null == instance)
@@ -28,6 +31,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        
     }
 
     public static GameManager Instance
@@ -66,11 +71,6 @@ public class GameManager : MonoBehaviour
     }
 
     void Start()
-    {
-               
-    }
-
-    void Update()
     {
         
     }

@@ -68,7 +68,7 @@ public class Bullet1 : MonoBehaviour, AttackObjectInterface
 
     IEnumerator Die(float second)
     {
-        gameObject.transform.localScale *= 1.4f;
+        gameObject.transform.localScale *= 1.2f;
         animator.SetTrigger("destroy");
 
         yield return new WaitForSeconds(second);

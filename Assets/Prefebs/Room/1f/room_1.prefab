@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7472689836628800909}
   - component: {fileID: 5641780526796401407}
+  - component: {fileID: 6099076817521701951}
+  - component: {fileID: 7573293540594388384}
   m_Layer: 0
   m_Name: door (1)
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,6 +84,46 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6099076817521701951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15292160109421964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d93af7c7265fe4b4da47967cf4a87de2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dir: 0
+  map: {fileID: 0}
+--- !u!61 &7573293540594388384
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15292160109421964}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 515, y: 1741}
+    newSize: {x: 515, y: 1741}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 515, y: 1741}
+  m_EdgeRadius: 0
 --- !u!1 &45692059888054590
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,7 +465,7 @@ GameObject:
   - component: {fileID: 62281627340291652}
   - component: {fileID: 2205993615162246128}
   - component: {fileID: 4185900224022545291}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor_1_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -863,7 +905,7 @@ GameObject:
   - component: {fileID: 9113142880920255669}
   - component: {fileID: 2625515011897388130}
   - component: {fileID: 1820926393398098273}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor_1_4 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -973,7 +1015,7 @@ GameObject:
   - component: {fileID: 5777054163421708115}
   - component: {fileID: 8204295182216276920}
   - component: {fileID: 3544269759764200512}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor_1_4 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1973,7 +2015,7 @@ GameObject:
   - component: {fileID: 1096469162702054246}
   - component: {fileID: 6063932630451470493}
   - component: {fileID: 6877327960018233420}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor_1_4 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2828,9 +2870,11 @@ GameObject:
   m_Component:
   - component: {fileID: 15791985404901294}
   - component: {fileID: 3681097598667291472}
+  - component: {fileID: 90047827498537407}
+  - component: {fileID: 3329224213723784412}
   m_Layer: 0
   m_Name: door
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2900,6 +2944,46 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &90047827498537407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6320974331386886675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d93af7c7265fe4b4da47967cf4a87de2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dir: 1
+  map: {fileID: 0}
+--- !u!61 &3329224213723784412
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6320974331386886675}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 515, y: 1741}
+    newSize: {x: 515, y: 1741}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 515, y: 1741}
+  m_EdgeRadius: 0
 --- !u!1 &6847978269700930280
 GameObject:
   m_ObjectHideFlags: 0
@@ -2911,7 +2995,7 @@ GameObject:
   - component: {fileID: 7564842538482711300}
   - component: {fileID: 8694700145663699760}
   - component: {fileID: 9213599917519798827}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor_1_4 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3021,7 +3105,7 @@ GameObject:
   - component: {fileID: 4485231899172578161}
   - component: {fileID: 3037195921368125653}
   - component: {fileID: 966546797527601863}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor_1_4 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3131,7 +3215,7 @@ GameObject:
   - component: {fileID: 8095826373737057470}
   - component: {fileID: 8775985208902010033}
   - component: {fileID: 4894590888307540805}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor_1_4 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3351,7 +3435,7 @@ GameObject:
   - component: {fileID: 3222446130526369876}
   - component: {fileID: 2585336028457877094}
   - component: {fileID: 9113848571518479102}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor_1_4 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3789,6 +3873,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9220821264897775541}
+  - component: {fileID: 6972994219286753772}
   m_Layer: 0
   m_Name: room_1
   m_TagString: Untagged
@@ -3814,6 +3899,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6972994219286753772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8855665585274517207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a81599acadf057e47a5345d26beed808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapLocX: 0
+  mapLocY: 0
 --- !u!1 &9032782731499339966
 GameObject:
   m_ObjectHideFlags: 0

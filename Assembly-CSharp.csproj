@@ -39,6 +39,7 @@
      <Compile Include="Assets\Scripts\LevelManager.cs" />
      <Compile Include="Assets\Scripts\Mob\Player.cs" />
      <Compile Include="Assets\Scripts\Mob\Bullet1.cs" />
+     <Compile Include="Assets\Scripts\Mob\TimeObjectInterface.cs" />
      <Compile Include="Assets\Scripts\ResourceManager.cs" />
      <Compile Include="Assets\Scripts\UIManager.cs" />
      <Compile Include="Assets\Scripts\Mob\PlayerAttackInfo.cs" />
@@ -46,10 +47,12 @@
      <Compile Include="Assets\Scripts\Mob\EnemyAttackRange.cs" />
      <Compile Include="Assets\Scripts\Mob\Enemy.cs" />
      <Compile Include="Assets\Scripts\Mob\Slime.cs" />
+     <Compile Include="Assets\Scripts\Object\Map.cs" />
      <Compile Include="Assets\Scripts\Mob\AttackObjectInterface.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Mob\PlayerAttackEffect.cs" />
-     <Compile Include="Assets\Scripts\Mob\TimeObjectInterface.cs" />
+     <Compile Include="Assets\Scripts\Object\Door.cs" />
+     <Compile Include="Assets\Scripts\Camera\CameraSetting.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.15f2/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

@@ -50,6 +50,9 @@ public class Player : MonoBehaviour
     //���ݷ�
     public int attackDamage;
 
+    //상호작용
+    public bool interection = false;
+
 
     float currentAttackDelay = 0;
     float attackDelay = 0.5f;
@@ -136,6 +139,11 @@ public class Player : MonoBehaviour
             ChangeSkill();
         }
 
+        //상호장용
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+        }
+
         //�ɷ� ���
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -212,10 +220,23 @@ public class Player : MonoBehaviour
                     Debug.Log("��¥ ����");
                 }
             }
+        }
 
+        if(collision.gameObject.tag == "Door") {
+            Door door = collision.gameObject.GetComponent<Door>();
+            door.Move();
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision) {
+        if(interection == true){
+            if(collision.gameObject.CompareTag("Door")) {
+                Debug.Log("문이다.");
+            }
+
+        }
+        
+    }
 
 
     //�� üũ
@@ -296,6 +317,12 @@ public class Player : MonoBehaviour
         if (!canAttack) return;
         attacking = true;
         animator.SetTrigger("isAttack");
+    }
+
+    IEnumerator InterectionSwitch(){
+        interection = true;
+        yield return new WaitForSeconds(0.5f);
+        interection = false;
     }
 
     //---�÷��̾� ��ų

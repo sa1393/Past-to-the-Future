@@ -60,23 +60,27 @@ public abstract class Enemy : MonoBehaviour, AttackObjectInterface
         }
         sr = GetComponent<SpriteRenderer>();
 
-        GameManager.Instance.enemies.Add(this);
     }
 
     protected void Start()
     {
+        if(GameObject.Find("player") != null) {
         player = GameObject.Find("player").GetComponent<Player>();
+
+        }
 
         if(enemyFloor != null)
         {
             PolygonCollider2D[] colliders = player.transform.GetChild(0).GetComponent<PlayerAttackEffect>().colliders;
 
             for (int i = 0; i < colliders.Length; i++)
-        {
-            Physics2D.IgnoreCollision(enemyFloor, colliders[i]);
+            {
+                Physics2D.IgnoreCollision(enemyFloor, colliders[i]);
+            }
+
         }
-        }
-        
+
+        GameManager.Instance.enemies.Add(this);
     }
 
 
