@@ -52,6 +52,7 @@ public class Player : MonoBehaviour
 
     //상호작용
     public bool interection = false;
+    public bool isDead = false;
 
 
     float currentAttackDelay = 0;
@@ -105,6 +106,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (isDead) return;
+
         if (Input.GetButton("Jump") && !isJump && !attacking)
         {
             Jump();
@@ -182,6 +185,8 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isDead) return;
+
         if (!canAttack)
         {
             currentAttackDelay += Time.deltaTime;
@@ -434,11 +439,14 @@ public class Player : MonoBehaviour
 
     IEnumerator Die()
     {
+        isDead = true;
+
         animator.SetBool("isDead", true);
 
         yield return new WaitForSeconds(1f);
 
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
+        //this.gameObject.SetActive(false);
     }
 
 

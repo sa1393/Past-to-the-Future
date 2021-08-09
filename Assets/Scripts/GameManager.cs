@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class GameManager : MonoBehaviour
     public ArrayList enemies;
 
     private static GameManager instance = null;
+
+    private bool gameover = false;
 
     void Awake()
     {
@@ -31,8 +34,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-
-        
     }
 
     public static GameManager Instance
@@ -72,6 +73,17 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+
+    }
+
+    private void Update()
+    {
+        if (gameover) return;
+
+        if(player.isDead)
+        {
+            SceneManager.LoadScene("gameover");
+            gameover = true;
+        }
     }
 }
