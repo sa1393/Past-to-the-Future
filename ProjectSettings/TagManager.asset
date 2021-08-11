@@ -11,6 +11,7 @@ TagManager:
   - EnemyAttack
   - EnemyRange
   - Door
+  - Wall
   layers:
   - Default
   - TransparentFX
