@@ -13,6 +13,7 @@ public class Door : MonoBehaviour
 {
     int mapLocX;
     int mapLocY;
+    public GameObject mapConfiner;
 
     public DoorDir dir;
 
@@ -20,6 +21,7 @@ public class Door : MonoBehaviour
     void Start()
     {
         map = transform.parent.transform.parent.GetComponent<Map>();
+        mapConfiner = GameObject.Find("MapConfiner");
     }
 
     public void Move(){
@@ -28,6 +30,7 @@ public class Door : MonoBehaviour
             case DoorDir.left:
                 if(LevelManager.Instance.map[map.mapLocX-1 , map.mapLocY] != null){
                     GameManager.Instance.player.transform.position = new Vector2(((map.mapLocX+1) - 1) * 6000f - 36000f, (map.mapLocY+1) * 6000f - 36000);
+                    mapConfiner.transform.position = new Vector2(((map.mapLocX + 1) - 1) * 6000f - 36000f, (map.mapLocY + 1) * 6000f - 36000);
                 }
                 else {
                     Debug.Log("방이 없음");
@@ -36,6 +39,7 @@ public class Door : MonoBehaviour
             case DoorDir.right:
                 if(LevelManager.Instance.map[map.mapLocX+1 , map.mapLocY] != null){
                     GameManager.Instance.player.transform.position = new Vector2(((map.mapLocX+1) + 1) * 6000f - 36000f, (map.mapLocY+1) * 6000f - 36000);
+                    mapConfiner.transform.position = new Vector2(((map.mapLocX + 1) + 1) * 6000f - 36000f, (map.mapLocY + 1) * 6000f - 36000);
                 }
                 else {
                     Debug.Log("방이 없음");
@@ -44,6 +48,7 @@ public class Door : MonoBehaviour
             case DoorDir.up:
                 if(LevelManager.Instance.map[map.mapLocX , map.mapLocY+1] != null){
                     GameManager.Instance.player.transform.position = new Vector2((map.mapLocX+1) * 6000f - 36000f, ((map.mapLocY+1)+1) * 6000f - 36000);
+                   mapConfiner.transform.position = new Vector2((map.mapLocX + 1) * 6000f - 36000f, ((map.mapLocY + 1) + 1) * 6000f - 36000);
                 }
                 else {
                     Debug.Log("방이 없음");
@@ -52,6 +57,7 @@ public class Door : MonoBehaviour
             case DoorDir.down:
                 if(LevelManager.Instance.map[map.mapLocX , map.mapLocY-1] != null){
                     GameManager.Instance.player.transform.position = new Vector2((map.mapLocX+1) * 6000f - 36000f, ((map.mapLocY+1)-1) * 6000f - 36000);
+                    mapConfiner.transform.position = new Vector2((map.mapLocX + 1) * 6000f - 36000f, ((map.mapLocY + 1) - 1) * 6000f - 36000);
                 }
                 else {
                     Debug.Log("방이 없음");
