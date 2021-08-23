@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-
     //Player
     public Text hpText;
     public Text attackDelayText;
