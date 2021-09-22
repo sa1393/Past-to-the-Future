@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
     private bool isRight = true;
     //�÷��̾ ���� ���� ��� �ִ°�?
     private bool isGround = true;
-
+    public GameObject mapConfiner;
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -88,6 +88,10 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log("test");
+        GameManager.Instance.player = GetComponent<Player>();
+        LevelManager.Instance.tempPlayer = gameObject;
+        
         Init();
         effect = transform.GetChild(0).GetComponent<PlayerAttackEffect>();
     }
@@ -99,9 +103,11 @@ public class Player : MonoBehaviour
     }
 
     private void Init() {
+        Debug.Log("스탯 초기화");
         maxHp = 100;
         hp = maxHp;
-        attackDamage = 1;
+        Debug.Log(hp);
+        attackDamage = 10;
     }
 
     void Update()
@@ -231,16 +237,20 @@ public class Player : MonoBehaviour
             Door door = collision.gameObject.GetComponent<Door>();
             door.Move();
         }
-    }
 
-    private void OnTriggerStay2D(Collider2D collision) {
-        if(interection == true){
-            if(collision.gameObject.CompareTag("Door")) {
-                Debug.Log("문이다.");
-            }
-
+        if (collision.gameObject.CompareTag("BossPortal"))
+        {
+            Debug.Log("포탈");
+            BossMove();
         }
         
+    }
+
+    private void BossMove()
+    {
+        mapConfiner.transform.position = new Vector2(26110f, -28256f);
+        transform.position = new Vector2(26110f, -28256f);
+    
     }
 
 
@@ -305,7 +315,6 @@ public class Player : MonoBehaviour
         MyInpulse.GenerateImpulse(new Vector3(100f, 100f));
         hp -= damage;
 
-        UIManager.Instance.hpText.text = "hp : " + hp;
         UIManager.Instance.SetPlayerHpImage(maxHp, hp);
 
         if (hp <= 0)
@@ -456,7 +465,6 @@ public class Player : MonoBehaviour
     {
         attacking = false;
         canAttack = false;
-        UIManager.Instance.attackDelayText.text = "���ݺҰ���";
     }
 
     public void PlayerAttackEffect()

@@ -12,6 +12,7 @@ TagManager:
   - EnemyRange
   - Door
   - Wall
+  - BossPortal
   layers:
   - Default
   - TransparentFX

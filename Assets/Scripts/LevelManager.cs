@@ -23,6 +23,10 @@ public class LevelManager : MonoBehaviour
 
     private static LevelManager instance = null;
 
+    public GameObject dartBat;
+
+    public int enemyCount = 0;
+
     void Awake()
     {
         if (null == instance)
@@ -50,6 +54,7 @@ public class LevelManager : MonoBehaviour
     }
 
     void Start() {
+       
        maxMapNum = 11;
         //1 2 3 4 5 6
         CreateLevel();
@@ -60,12 +65,27 @@ public class LevelManager : MonoBehaviour
                 GameObject temp = Instantiate(map[i, j], new Vector2((i+1) * 6000 - 36000, (j+1) * 6000 - 36000), Quaternion.identity);
                 temp.GetComponent<Map>().mapLocX = i;
                 temp.GetComponent<Map>().mapLocY = j;
+                int tempRan = Random.Range(0, 100);
+                if(tempRan < 90)
+                {
+                    if(tempRan < 10)
+                    {
+                        Instantiate(dartBat, new Vector2((i + 1) * 6000 - 35900, (j + 1) * 6000 - 36100), Quaternion.identity);
+                        Instantiate(dartBat, new Vector2((i + 1) * 6000 - 36100, (j + 1) * 6000 - 36100), Quaternion.identity);
+                        enemyCount++;
+                        enemyCount++;
+                    }
+                    else
+                    {
+                        Instantiate(dartBat, new Vector2((i + 1) * 6000 - 36000, (j + 1) * 6000 - 36100), Quaternion.identity);
+                        enemyCount++;
+                    }
+
+                }
             } 
             
         }
-        GameObject player = Instantiate(tempPlayer, new Vector2(6 * 6000 - 36000, 6 * 6000 - 36000), Quaternion.identity);
-        player.name = "player";
-        GameManager.Instance.player = player.GetComponent<Player>();
+
     }
 
 

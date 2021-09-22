@@ -130,6 +130,9 @@ public class DarkBat : Enemy
         {
             animator.SetTrigger("isDead");
             StartCoroutine(Die(0.5f));
+            LevelManager.Instance.enemyCount--;
+            
+            Debug.Log(LevelManager.Instance.enemyCount);
         }
         else
         {
