@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
         if(player.isDead)
         {
             SceneManager.LoadScene("gameover");
+            BGMManager.Instance.GameOverBGM();
             gameover = true;
         }
     }

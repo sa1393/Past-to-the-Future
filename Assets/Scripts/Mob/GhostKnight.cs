@@ -109,7 +109,7 @@ public class GhostKnight : Enemy
 
     IEnumerator CreateBullet(float temp)
     {
-        Debug.Log("»ý¼º");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½");
         Instantiate(bullet);
 
         bullet.transform.position = new Vector2(attackPosition.transform.position.x, attackPosition.transform.position.y );
@@ -131,7 +131,9 @@ public class GhostKnight : Enemy
         {
             animator.SetTrigger("die");
             StartCoroutine(Die(0.5f));
+            BGMManager.Instance.ClearBGM();
             SceneManager.LoadScene("gameclear");
+            
         }
         else
         {

@@ -27,10 +27,13 @@ public class SceneChangeManager : MonoBehaviour
     public void GameStart()
     {
         SceneManager.LoadScene("test");
+        BGMManager.Instance.InGameBGN();
     }
 
     public void MainSceneMove()
     {
+
         SceneManager.LoadScene("main");
+        BGMManager.Instance.MainBGM();
     }
 }
