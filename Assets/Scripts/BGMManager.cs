@@ -41,20 +41,24 @@ public class BGMManager : MonoBehaviour
         BGM.loop = true;
     }
 
-    void MainBGM() {
+    public void MainBGM() {
         BGM.clip = audio[0];
+        BGM.Play();
     }
 
-    void InGameBGM() {
+    public void InGameBGM() {
         BGM.clip = audio[1];
+        BGM.Play();
     }
 
 
-    void ClearBGM() {
+    public void ClearBGM() {
         BGM.clip = audio[2];
+        BGM.Play();
     }
 
-    void GameOverBGM() {
+    public void GameOverBGM() {
         BGM.clip = audio[3];
+        BGM.Play();
     }
 }

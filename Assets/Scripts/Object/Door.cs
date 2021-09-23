@@ -46,7 +46,9 @@ public class Door : MonoBehaviour
                 }
             break;
             case DoorDir.up:
-                if(LevelManager.Instance.map[map.mapLocX , map.mapLocY+1] != null){
+                Debug.Log(LevelManager.Instance.map[map.mapLocX, map.mapLocY + 1]);
+                Debug.Log(LevelManager.Instance.map[map.mapLocX, map.mapLocY ]);
+                if (LevelManager.Instance.map[map.mapLocX , map.mapLocY+1] != null){
                     GameManager.Instance.player.transform.position = new Vector2((map.mapLocX+1) * 6000f - 36000f, ((map.mapLocY+1)+1) * 6000f - 36000);
                    mapConfiner.transform.position = new Vector2((map.mapLocX + 1) * 6000f - 36000f, ((map.mapLocY + 1) + 1) * 6000f - 36000);
                 }

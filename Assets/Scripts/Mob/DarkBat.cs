@@ -131,7 +131,7 @@ public class DarkBat : Enemy
             animator.SetTrigger("isDead");
             StartCoroutine(Die(0.5f));
             LevelManager.Instance.enemyCount--;
-            
+            UIManager.Instance.monsetText.text = "남은 몬스터 수 : " + LevelManager.Instance.enemyCount.ToString();
             Debug.Log(LevelManager.Instance.enemyCount);
         }
         else

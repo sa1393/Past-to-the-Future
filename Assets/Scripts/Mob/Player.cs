@@ -98,7 +98,6 @@ public class Player : MonoBehaviour
 
     private void UIInit()
     {
-        UIManager.Instance.hpText.text = hp.ToString();
         UIManager.Instance.SetPlayerHpImage(maxHp, hp);
     }
 
@@ -201,7 +200,6 @@ public class Player : MonoBehaviour
             {
                 currentAttackDelay = 0;
                 canAttack = true;
-                UIManager.Instance.attackDelayText.text = "���ݰ���";
             }
         }
 

@@ -62,6 +62,185 @@ public class LevelManager : MonoBehaviour
             for(int j=0; j<11; j++)
             {
                 if(map[i,j] == null) continue;
+                //왼쪽
+                if(map[i - 1, j] != null)
+                {
+                    //오른쪽도
+                    if (map[i + 1, j] != null)
+                    {
+                        if (map[i, j + 1] != null && map[i, j - 1] != null)
+                        {
+                            map[i, j] = mapPrefebs1[11];
+                        }
+                        else if (map[i, j + -1] != null)
+                        {
+                            map[i, j] = mapPrefebs1[9];
+
+                        }
+                        else if (map[i, j + 1] != null)
+                        {
+                            map[i, j] = mapPrefebs1[10];
+                        }
+                        else
+                        {
+                            map[i, j] = mapPrefebs1[8];
+                        }
+                    }
+                    else //X
+                    {
+                        if (map[i, j + 1] != null && map[i, j - 1] != null)
+                        {
+                            map[i, j] = mapPrefebs1[3];
+                        }
+                        else if (map[i, j + -1] != null)
+                        {
+
+                            map[i, j] = mapPrefebs1[1];
+                        }
+                        else if (map[i, j + 1] != null)
+                        {
+                            map[i, j] = mapPrefebs1[2];
+                        }
+                        else
+                        {
+                            map[i, j] = mapPrefebs1[0];
+                        }
+                    }
+                }
+                else if (map[i + 1, j] != null)
+                {
+                    //왼쪽도
+                    if (map[i - 1, j] != null)
+                    {
+                        if (map[i, j + 1] != null && map[i, j - 1] != null)
+                        {
+                            map[i, j] = mapPrefebs1[11];
+                        }
+                        else if (map[i, j + -1] != null)
+                        {
+                            map[i, j] = mapPrefebs1[9];
+
+                        }
+                        else if (map[i, j + 1] != null)
+                        {
+                            map[i, j] = mapPrefebs1[10];
+                        }
+                        else
+                        {
+                            map[i, j] = mapPrefebs1[8];
+                        }
+                    }
+                    else //X
+                    {
+                        if (map[i, j + 1] != null && map[i, j - 1] != null)
+                        {
+                            map[i, j] = mapPrefebs1[7];
+                        }
+                        else if (map[i, j + -1] != null)
+                        {
+
+                            map[i, j] = mapPrefebs1[5];
+                        }
+                        else if (map[i, j + 1] != null)
+                        {
+                            map[i, j] = mapPrefebs1[6];
+                        }
+                        else
+                        {
+                            map[i, j] = mapPrefebs1[4];
+                        }
+                    }
+                }
+                else if (map[i, j + 1] != null)
+                {
+                    //아래도
+                    if (map[i, j - 1] != null)
+                    {
+                        if (map[i, j + 1] != null && map[i, j - 1] != null)
+                        {
+                            map[i, j] = mapPrefebs1[11];
+                        }
+                        else if (map[i, j + -1] != null)
+                        {
+                            map[i, j] = mapPrefebs1[3];
+
+                        }
+                        else if (map[i, j + 1] != null)
+                        {
+                            map[i, j] = mapPrefebs1[7];
+                        }
+                        else
+                        {
+                            map[i, j] = mapPrefebs1[11];
+                        }
+                    }
+                    else //X
+                    {
+                        if (map[i + 1, j] != null && map[i - 1, j] != null)
+                        {
+                            map[i, j] = mapPrefebs1[10];
+                        }
+                        else if (map[i + 1, j] != null)
+                        {
+
+                            map[i, j] = mapPrefebs1[6];
+                        }
+                        else if (map[i - 1, j] != null)
+                        {
+                            //오른쪽 위
+                            map[i, j] = mapPrefebs1[2];
+                        }
+                        else
+                        {
+                            map[i, j] = mapPrefebs1[13];
+                        }
+                    }
+                }
+                else if (map[i, j - 1] != null)
+                {
+                    //위도
+                    if (map[i, j - 1] != null)
+                    {
+                        if (map[i, j + 1] != null && map[i, j - 1] != null)
+                        {
+                            map[i, j] = mapPrefebs1[11];
+                        }
+                        else if (map[i, j + -1] != null)
+                        {
+                            map[i, j] = mapPrefebs1[3];
+
+                        }
+                        else if (map[i, j + 1] != null)
+                        {
+                            map[i, j] = mapPrefebs1[7];
+                        }
+                        else
+                        {
+                            map[i, j] = mapPrefebs1[11];
+                        }
+                    }
+                    else //X
+                    {
+                        if (map[i + 1, j] != null && map[i - 1, j] != null)
+                        {
+                            map[i, j] = mapPrefebs1[9];
+                        }
+                        else if (map[i + 1, j] != null)
+                        {
+
+                            map[i, j] = mapPrefebs1[5];
+                        }
+                        else if (map[i - 1, j] != null)
+                        {
+                            map[i, j] = mapPrefebs1[1];
+                        }
+                        else
+                        {
+                            map[i, j] = mapPrefebs1[12];
+                        }
+                    }
+                }
+
                 GameObject temp = Instantiate(map[i, j], new Vector2((i+1) * 6000 - 36000, (j+1) * 6000 - 36000), Quaternion.identity);
                 temp.GetComponent<Map>().mapLocX = i;
                 temp.GetComponent<Map>().mapLocY = j;
@@ -85,7 +264,7 @@ public class LevelManager : MonoBehaviour
             } 
             
         }
-
+        UIManager.Instance.monsetText.text = "남은 몬스터 수 : " + enemyCount.ToString();
     }
 
 
@@ -97,7 +276,7 @@ public class LevelManager : MonoBehaviour
         tempMap.mapLocX = maxMapNum / 2;
         tempMap.mapLocY = maxMapNum / 2;
         
-        CreateMap(maxMapNum / 2, maxMapNum / 2, 80);
+        CreateMap(maxMapNum / 2, maxMapNum / 2, 100);
     }
 
     void CreateMap(int locX, int locY, int createPer){

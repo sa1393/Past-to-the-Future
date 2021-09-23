@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     //Player
-    public Text hpText;
-    public Text attackDelayText;
     public Image hpBar;
     public Image skilIcon;
     public Image skillBar;
+
+    public Text monsetText;
 
     private static UIManager instance = null;
 
